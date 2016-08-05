@@ -15,28 +15,14 @@
 //
 //@end
 
-@class MMine;
+@class MSPPersonalInformationModel;
 
 @interface VMine : UITableViewCell
 
-@property (nonatomic,strong) MMine *mMine;
-@property (nonatomic,assign) CGFloat QRCodeX;
-@property (nonatomic,assign) CGFloat QRCodeY;
-@property (nonatomic,copy) UIImageView *userImage;  // 头像
-@property (nonatomic,copy) UIImageView *QRCode;     // 二维码
-@property (nonatomic,copy) UILabel *name;           // 昵称
-@property (nonatomic,copy) UILabel *account;        // 账号
+@property (nonatomic,strong) MSPPersonalInformationModel *model;
+
+- (void)setRightIcon:(UIImage *)image size:(CGSize)size;
 
 //@property (nonatomic,assign) id<vMineDelegate> delegate;
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier qrcodex:(CGFloat)qrcodex qrcodey:(CGFloat)qrcodey;
-
-+ (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier qrcodex:(CGFloat)qrcodex qrcodey:(CGFloat)qrcodey;
-
-
-
-
-
-
 
 @end

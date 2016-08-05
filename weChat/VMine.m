@@ -7,81 +7,71 @@
 //
 
 #import "VMine.h"
-#import "MMine.h"
+#import "MSPPersonalInformationModel.h"
 #import "UIImageView+Webcache.h"
-#define SCREEN_WIDTH 320
 #define NAMEFONT 16
 #define ACCOUNTFONT 13
-#define THESPACE 10
 #define IMAGESIZE 60
 #define QRCODESIZE 20
+#define QRCodeX 40
+#define QRCodeY 30
+
+@interface VMine ()
+
+@property (nonatomic,copy) UIImageView *userImage;  // 头像
+@property (nonatomic,copy) UIImageView *QRCode;     // 二维码
+@property (nonatomic,copy) UILabel *name;           // 昵称
+@property (nonatomic,copy) UILabel *account;        // 账号
+
+@end
 
 @implementation VMine
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier qrcodex:(CGFloat)qrcodex qrcodey:(CGFloat)qrcodey
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.QRCodeX = qrcodex;
-        self.QRCodeY = qrcodey;
-        [self initView];
-    }
-    return self;
+- (void)setRightIcon:(UIImage *)image size:(CGSize)size {
+    _QRCode = [[UIImageView alloc] initWithImage:image];
+    _QRCode.frame = CGRectMake(SCREEN_WIDTH - QRCodeX - size.width, 7.5, size.width, size.height);
+    _QRCode.layer.masksToBounds = YES;
+    _QRCode.layer.cornerRadius = 3;
+    [self.contentView addSubview:_QRCode];
 }
 
-+ (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier qrcodex:(CGFloat)qrcodex qrcodey:(CGFloat)qrcodey
-{
-    VMine *tmp = [[VMine alloc]initWithStyle:style reuseIdentifier:reuseIdentifier qrcodex:qrcodex qrcodey:qrcodey];
-    return tmp;
-}
-
-- (void)initView
-{
-    
-    _userImage = [[UIImageView alloc]init];
-    [self addSubview:_userImage];
-    
-    _QRCode = [[UIImageView alloc]init];
-    _QRCode.image = [UIImage imageNamed:@"qrcode"];
-    [_QRCode setFrame:CGRectMake(self.QRCodeX, self.QRCodeY, QRCODESIZE, QRCODESIZE)];
-    [self addSubview:_QRCode];
-    
-    _name = [[UILabel alloc]init];
-    _name.font = [UIFont systemFontOfSize:NAMEFONT];
-    [_name setTextColor:[UIColor blackColor]];
-    [self addSubview:_name];
-    
-    _account = [[UILabel alloc]init];
-    _account.font = [UIFont systemFontOfSize:ACCOUNTFONT];
-    [_account setTextColor:[UIColor blackColor]];
-    [self addSubview:_account];
-}
-
-- (void)setMMine:(MMine *)mMine
-{
+- (void)setModel:(MMine *)model {
     CGFloat userImageX = THESPACE;
     CGFloat userImageY = THESPACE;
     CGRect userImageRect = CGRectMake(userImageX, userImageY, IMAGESIZE, IMAGESIZE);
-    _userImage.image = [UIImage imageNamed:@"dog.jpg"];
+    _userImage = [[UIImageView alloc] init];
     _userImage.frame = userImageRect;
     _userImage.layer.masksToBounds = YES;
     _userImage.layer.cornerRadius = 3;
+    _userImage.image = [UIImage imageNamed:model.userImage];
+    [self.contentView addSubview:_userImage];
     
+    _QRCode = [[UIImageView alloc] init];
+    _QRCode.image = [UIImage imageNamed:@"qrcode"];
+    _QRCode.frame = CGRectMake(SCREEN_WIDTH - QRCodeX - QRCODESIZE, QRCodeY, QRCODESIZE, QRCODESIZE);
+    [self.contentView addSubview:_QRCode];
     
     CGFloat nameX = THESPACE * 2 + IMAGESIZE;
     CGFloat nameY = THESPACE * 2;
-    CGSize nameSize = [mMine.name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:NAMEFONT]}];
+    CGSize nameSize = [model.name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:NAMEFONT]}];
     CGRect nameRect = CGRectMake(nameX, nameY, nameSize.width, nameSize.height);
-    _name.text = mMine.name;
+    _name = [[UILabel alloc]init];
+    _name.font = [UIFont systemFontOfSize:NAMEFONT];
+    _name.textColor = [UIColor blackColor];
+    _name.text = model.name;
     _name.frame = nameRect;
+    [self.contentView addSubview:_name];
 
     CGFloat accountX = nameX;
     CGFloat accountY = CGRectGetMaxY(nameRect) + THESPACE * 1.5;
-    CGSize accountSize = [mMine.account sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:ACCOUNTFONT]}];
+    CGSize accountSize = [model.account sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:ACCOUNTFONT]}];
     CGRect accountRect = CGRectMake(accountX, accountY, accountSize.width * 2, accountSize.height);
-    _account.text =[NSString stringWithFormat:@"微信号： %@",mMine.account];
+    _account = [[UILabel alloc] init];
+    _account.font = [UIFont systemFontOfSize:ACCOUNTFONT];
+    _account.textColor = [UIColor blackColor];
+    _account.text = [NSString stringWithFormat:@"微信号： %@",model.account];
     _account.frame = accountRect;
-
+    [self.contentView addSubview:_account];
 }
 
 @end

@@ -165,16 +165,16 @@
 - (NSArray *)rightButtons
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] title:@"标为未读" font:16];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor redColor] title:@"删除" font:16];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] title:@"标为未读" font:16];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor redColor] title:@"删除" font:16];
     return rightUtilityButtons;
 }
 
 - (NSArray *)rightButtonsUnread
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] title:@"标为已读" font:16];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor redColor] title:@"删除" font:16];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] title:@"标为已读" font:16];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor redColor] title:@"删除" font:16];
     return rightUtilityButtons;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VMine.h"
+
 @interface CMine : UIViewController
 
 @end

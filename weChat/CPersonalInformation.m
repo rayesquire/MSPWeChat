@@ -8,120 +8,95 @@
 
 #import "CPersonalInformation.h"
 #import "VMine.h"
-#import "MMine.h"
 #import "AVFoundation/AVFoundation.h"
-#import "CAddress.h"
 #define TITLESIZE 15
 #define DETAILSIZE 12
-#define QRCODEX 270
-#define QRCODEY 12
 
-@interface CPersonalInformation () <UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-{
-    UITableView *_tableView;
-    UIImageView *_userImage;
-}
+@interface CPersonalInformation () <UITableViewDataSource,
+                                    UITableViewDelegate,
+                                    UIImagePickerControllerDelegate,
+                                    UINavigationControllerDelegate>
+
+@property (nonatomic, readwrite, strong) NSArray *listArray;
+@property (nonatomic, readwrite, strong) UITableView *tableView;
+@property (nonatomic, readwrite, strong) UIImageView *userImage;
+
 @end
 
 @implementation CPersonalInformation
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
-    
+    self.view.backgroundColor = BACKGROUND_COLOR;
     self.title = @"个人信息";
-    _tableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
+    
+    _listArray = @[@"头像",@"名字",@"微信号",@"我的二维码",@"我的地址",@"性别",@"地区",@"个性签名"];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return 5;
-    }else return 3;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) return 5;
+    else return 3;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return 70;
-    }else if (indexPath.section == 1 && indexPath.row == 2){
-        return 50;
-    }else return 44;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 0) return 70;
+    else return 44;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellIdentifier = @"cellIdentifier";
-    
-    if (indexPath.section == 0 && indexPath.row == 3) {
-        VMine *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell = [[VMine alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier qrcodex:QRCODEX qrcodey:QRCODEY];
-        cell.textLabel.text = @"我的二维码";
-        cell.textLabel.font = [UIFont systemFontOfSize:TITLESIZE];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
-    }else {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-    cell.textLabel.font = [UIFont systemFontOfSize:TITLESIZE];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"头像";
-            _userImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 55, 55)];
-            [_userImage setImage:[UIImage imageNamed:@"dog.jpg"]];
-            _userImage.layer.masksToBounds = YES;
-            _userImage.layer.cornerRadius = 3;
-            _userImage.tag = 100;
-            cell.accessoryView = _userImage;
-            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userImageZoom:)];
-            [_userImage addGestureRecognizer:tapGesture];
-            _userImage.userInteractionEnabled = YES;
-            
-        }else if (indexPath.row == 1){
-            cell.textLabel.text = @"名字";
-            cell.detailTextLabel.text = @"尾巴超大号";
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
-        }else if (indexPath.row == 2){
-            cell.textLabel.text = @"微信号";
-            cell.detailTextLabel.text = @"msp656692784";
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
-            cell.accessoryType = NO;
-            cell.userInteractionEnabled = NO;
-        }else if (indexPath.row == 4){
-            cell.textLabel.text = @"我的地址";
-        }
-    }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"性别";
-            cell.detailTextLabel.text = @"男";
-        }else if (indexPath.row == 1){
-            cell.textLabel.text = @"地区";
-            cell.detailTextLabel.text = @"江苏 南京";
-        }else if (indexPath.row == 2){
-            cell.textLabel.text = @"个性签名";
-            cell.detailTextLabel.text = @"In me the tiger sniffs the rose";
-        }
-    }
-    return cell;
-    }
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static NSString *cellIdentifier = @"cellIdentifier";
+//    VMine *cell = [[VMine alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    if (indexPath.section == 0) {
+//        cell.textLabel.font = [UIFont systemFontOfSize:TITLESIZE];
+//        cell.textLabel.text = _listArray[indexPath.row];
+//        if (indexPath.row == 0) {
+//            UIImage *image = [UIImage imageNamed:self.personalInfo.userImage];
+//            [cell setRightIcon:image size:CGSizeMake(55, 55)];
+//        }
+//        else if (indexPath.row == 3) {
+//            UIImage *image = [UIImage imageNamed:@"qrcode"];
+//            [cell setRightIcon:image size:CGSizeMake(20, 20)];
+//        }
+//        else if (indexPath.row == 1) {
+//            cell.detailTextLabel.text = self.personalInfo.name;
+//            cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
+//        }
+//        else if (indexPath.row == 2) {
+//            cell.detailTextLabel.text = self.personalInfo.account;
+//            cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
+//            cell.accessoryType = NO;
+//        }
+//    }
+//    else {
+//        cell.textLabel.font = [UIFont systemFontOfSize:TITLESIZE];
+//        cell.detailTextLabel.font = [UIFont systemFontOfSize:DETAILSIZE];
+//        cell.textLabel.text = _listArray[indexPath.row + 5];
+//        if (indexPath.row == 0) {
+//            cell.detailTextLabel.text = _personalInfo.sex;
+//        }
+//        else if (indexPath.row == 1){
+//            cell.detailTextLabel.text = _personalInfo.region;
+//        }
+//        else {
+//            cell.detailTextLabel.text = _personalInfo.autograph;
+//        }
+//    }
+//    return cell;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.00000001;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 20;
 }
 
@@ -181,8 +156,8 @@
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
         backItem.title = @"返回";
         self.navigationItem.backBarButtonItem = backItem;
-        CAddress *address = [[CAddress alloc]init];
-        [self.navigationController pushViewController:address animated:YES];
+//        CAddress *address = [[CAddress alloc]init];
+//        [self.navigationController pushViewController:address animated:YES];
     }else if (indexPath.section == 0 && indexPath.row == 2){
 
     }

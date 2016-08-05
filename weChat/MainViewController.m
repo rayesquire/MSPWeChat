@@ -10,7 +10,8 @@
 #import "CWeChat.h"
 #import "findView.h"
 #import "CContacts.h"
-#import "CMine.h"
+#import "MSPMineVC.h"
+
 //#import "MYTabBar.h"
 #define MYColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 //@interface MainViewController () <MYTabBarDelegate>
@@ -28,7 +29,7 @@
     findView *view3 = [[findView alloc]init];
     [self addViewContronller:view3 withTitle:@"发现" andImage:@"tabbar_discover" andSelectedImage:@"tabbar_discoverHL"];
     
-    CMine *view4 = [[CMine alloc]init];
+    MSPMineVC *view4 = [[MSPMineVC alloc]init];
     [self addViewContronller:view4 withTitle:@"我" andImage:@"tabbar_me" andSelectedImage:@"tabbar_meHL"];
     
 //    MYTabBar *tabBar = [[MYTabBar alloc]init];

@@ -20,11 +20,9 @@
     return self;
 }
 
-- (void)initSubView
-{
+- (void)initSubView {
     _userImage = [[UIImageView alloc]initWithFrame:CGRectMake(15, 10, 20, 20)];
-    
-    NSMutableArray *array = [[NSMutableArray alloc]init];
+    NSMutableArray *array = [NSMutableArray array];
     for (int i = 1; i <= 12; i++) {
         NSString *name = [NSString stringWithFormat:@"icon_loading%i",i];
         NSString *tmp = [NSString stringWithFormat:@"%@.jpg",name];

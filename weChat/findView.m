@@ -22,7 +22,7 @@
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
-    UITableView *tableFindView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    UITableView *tableFindView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     tableFindView.delegate = self;
     tableFindView.dataSource = self;
     [self.view addSubview:tableFindView];
