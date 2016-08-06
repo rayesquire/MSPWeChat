@@ -2,6 +2,7 @@ platform :ios, '7.0'
 pod "SDWebImage", "~>3.8"
 pod 'MBProgressHUD','~> 1.0.0'
 pod 'SWTableViewCell','~> 0.3.7'
+pod "Realm"
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
@@ -9,3 +10,5 @@ platform :ios, '8.0'
 target 'weChat' do
 pod 'AFNetworking', '~> 3.0'
 end
+
+

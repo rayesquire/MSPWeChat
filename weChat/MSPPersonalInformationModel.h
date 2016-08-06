@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm.h>
 
-@interface MSPPersonalInformationModel : NSObject
+@interface MSPPersonalInformationModel : RLMObject
 
+@property (nonatomic, readwrite, assign) NSInteger ID;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *account;
 @property (nonatomic,copy) NSString *userImage;

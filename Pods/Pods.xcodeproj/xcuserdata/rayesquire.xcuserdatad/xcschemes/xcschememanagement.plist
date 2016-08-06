@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>00FB8B87BB2D8EAF5569ED930C9307CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0980D5322CD4AC93F6FACD135A5A8D0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E85CCB7A3C27B2BA0EFD21010DD44C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B20261C790214D0F981FC006CFF291EA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B4692B328689F10573EDE70DFAB3187D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D29D601607DB5D6A3EF5023B81D4A6C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE12F493568BE4D11A165F746A824E31</key>
 		<dict>
 			<key>primary</key>
 			<true/>

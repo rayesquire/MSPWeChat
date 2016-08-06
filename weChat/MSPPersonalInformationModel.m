@@ -10,4 +10,8 @@
 
 @implementation MSPPersonalInformationModel
 
++ (NSString *)primaryKey {
+    return @"ID";
+}
+
 @end

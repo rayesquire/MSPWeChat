@@ -9,6 +9,8 @@
 #import "MSPPersonalInformationCell.h"
 #import "MSPPersonalInformationModel.h"
 #import "UIImageView+Webcache.h"
+#import "UIImage+getImage.h"
+
 #define NAMEFONT 16
 #define ACCOUNTFONT 13
 #define IMAGESIZE 60
@@ -43,7 +45,7 @@
     _userImage.frame = userImageRect;
     _userImage.layer.masksToBounds = YES;
     _userImage.layer.cornerRadius = 3;
-    _userImage.image = [UIImage imageNamed:model.userImage];
+    _userImage.image = [UIImage msp_image:model.userImage];
     [self.contentView addSubview:_userImage];
     
     _QRCode = [[UIImageView alloc] init];

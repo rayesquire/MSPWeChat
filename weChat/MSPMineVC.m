@@ -10,6 +10,7 @@
 #import "MSPPersonalInfomationVC.h"
 #import "MSPPersonalInformationModel.h"
 #import "MSPPersonalInformationCell.h"
+
 #define TITLESIZE 15
 
 @interface MSPMineVC () <UITableViewDataSource,UITableViewDelegate>
@@ -38,13 +39,17 @@
                    [UIImage imageNamed:@"MoreMyBankCard"],
                    [UIImage imageNamed:@"MoreExpressionShops"],
                    [UIImage imageNamed:@"MoreSetting"]];
-    _personalInfo = [[MSPPersonalInformationModel alloc] init];
-    _personalInfo.name = @"尾巴超大号";
-    _personalInfo.account = @"msp656692784";
-    _personalInfo.userImage = @"dog.jpg";
-    _personalInfo.sex = @"男";
-    _personalInfo.region = @"江苏 南京";
-    _personalInfo.autograph = @"In me the tiger sniffs the rose";
+    
+//    RLMRealm *realm = [RLMRealm defaultRealm];
+//    RLMResults *result = [MSPPersonalInformationModel allObjectsInRealm:realm];
+    RLMResults *result = [MSPPersonalInformationModel objectsWhere:@"ID = 1"];
+    _personalInfo = result.firstObject;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (_tableView) {
+        [_tableView reloadData];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,8 +67,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    MSPPersonalInformationCell *cell = [[MSPPersonalInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    static NSString *mspminecellIdentifier = @"cellIdentifier";
+    MSPPersonalInformationCell *cell = [[MSPPersonalInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mspminecellIdentifier];
     if (indexPath.section == 0) {
         cell.model = _personalInfo;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

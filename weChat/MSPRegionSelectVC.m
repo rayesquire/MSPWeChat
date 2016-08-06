@@ -111,15 +111,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    static NSString *mspregionselectcellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mspregionselectcellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:mspregionselectcellIdentifier];
     }
     if (indexPath.section == 0) {
         if (!_countryName && !_provinceName) {
-            cell = [[MSPRegionSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            cell = [[MSPRegionSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mspregionselectcellIdentifier];
         }
         else {
             cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _countryName, _provinceName, _cityName];

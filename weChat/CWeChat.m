@@ -16,11 +16,9 @@
 #import "MoreFunctionTableViewController.h"
 #import "sqlite3.h"
 #import "SWTableViewCell.h"
-#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
-#define MYColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define DATABASENAME @"chatRecord.sqlite"
 @interface CWeChat () <UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate>
+
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic) sqlite3 *database;
 @property (nonatomic,copy) NSMutableArray *array;  // all data
@@ -75,7 +73,7 @@
 
 - (void)addSearchbar
 {
-    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 40)];
+    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     searchBar.placeholder = @"搜索";
     [_tableView setTableHeaderView:searchBar];
 }

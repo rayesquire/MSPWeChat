@@ -7,7 +7,6 @@
 //
 
 #import "CContacts.h"
-#import "VContacts.h"
 #import "ChineseString.h"
 #import "pinyin.h"
 #import "CDetails.h"
@@ -131,7 +130,6 @@
         }
         sqlite3_finalize(statement);
     }
-    [self sortData];
 }
 
 - (void)sortData

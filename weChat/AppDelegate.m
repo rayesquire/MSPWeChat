@@ -8,10 +8,11 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "sqlite3.h"
-#define DATABASENAME @"chatRecord.sqlite"
+#import "MSPPersonalInformationModel.h"
+#import "MSPContactModel.h"
+
 @interface AppDelegate ()
-@property (nonatomic) sqlite3 *database;
+
 @end
 
 @implementation AppDelegate
@@ -24,16 +25,68 @@
     
     MainViewController *mainViewController = [[MainViewController alloc]init];
     self.window.rootViewController = mainViewController;
+    
+    [self writeData];
+    
     return YES;
 }
 
-//-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
-//{
-//    if ([UIMenuController sharedMenuController]) {
-//        [UIMenuController sharedMenuController].menuVisible = NO;
-//    }
-//    return NO;
-//}
+- (void)writeData {
+    MSPPersonalInformationModel *model = [[MSPPersonalInformationModel alloc] init];
+    model.ID = 1;
+    model.name = @"尾巴超大号";
+    model.account = @"msp656692784";
+    model.userImage = @"dog.jpg";
+    model.sex = @"男";
+    model.region = @"江苏 南京";
+    model.autograph = @"In me the tiger sniffs the rose";
+    
+    MSPContactModel *B = [[MSPContactModel alloc] init];
+    B.uid = 1;
+    B.name = @"张";
+    B.remark = @"张";
+    B.account = @"dsadafdf";
+    B.userImage = @"dog.jpg";
+    B.sex = @"nan";
+    B.region = @"eg";
+    
+    MSPContactModel *bobo = [[MSPContactModel alloc] init];
+    bobo.uid = 2;
+    bobo.name = @"波波";
+    bobo.remark = @"啵啵啵";
+    bobo.account = @"ewq1231";
+    bobo.userImage = @"dog.jpg";
+    bobo.sex = @"nan";
+    bobo.region = @"eg";
+    
+    MSPContactModel *aaa = [[MSPContactModel alloc] init];
+    aaa.uid = 3;
+    aaa.name = @"大大";
+    aaa.remark = @"大大";
+    aaa.account = @"312ada";
+    aaa.userImage = @"dog.jpg";
+    aaa.sex = @"nan";
+    aaa.region = @"eg";
+    
+    MSPContactModel *ccc = [[MSPContactModel alloc] init];
+    ccc.uid = 4;
+    ccc.name = @"江";
+    ccc.remark = @"江";
+    ccc.account = @"gfdf";
+    ccc.userImage = @"dog.jpg";
+    ccc.sex = @"nan";
+    ccc.region = @"eg";
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [MSPPersonalInformationModel createOrUpdateInRealm:realm withValue:model];
+    [MSPContactModel createOrUpdateInRealm:realm withValue:B];
+    [MSPContactModel createOrUpdateInRealm:realm withValue:bobo];
+    [MSPContactModel createOrUpdateInRealm:realm withValue:aaa];
+    [MSPContactModel createOrUpdateInRealm:realm withValue:ccc];
+    [realm commitWriteTransaction];
+
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

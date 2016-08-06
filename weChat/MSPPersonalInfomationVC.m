@@ -40,6 +40,12 @@
     _listArray = @[@"头像",@"名字",@"微信号",@"我的二维码",@"我的地址",@"性别",@"地区",@"个性签名"];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if (_tableView) {
+        [_tableView reloadData];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -54,14 +60,20 @@
     else return 44;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    MSPPersonalInformationCell *cell = [[MSPPersonalInformationCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+    static NSString *msppersonalinformationcellIdentifier = @"cellIdentifier";
+    MSPPersonalInformationCell *cell = [[MSPPersonalInformationCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:msppersonalinformationcellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0) {
         cell.textLabel.font = [UIFont systemFontOfSize:TITLESIZE];
         cell.textLabel.text = _listArray[indexPath.row];
         if (indexPath.row == 0) {
-            UIImage *image = [UIImage imageNamed:self.personalInfo.userImage];
+            UIImage *image;
+            if (!_personalInfo.userImage || [_personalInfo.userImage isEqualToString:@""]) {
+                image = [UIImage imageNamed:_personalInfo.userImage];
+            }
+            else {
+                image = [UIImage imageWithContentsOfFile:_personalInfo.userImage];
+            }
             [cell setRightIcon:image size:CGSizeMake(55, 55)];
         }
         else if (indexPath.row == 3) {
@@ -118,8 +130,5 @@
         }
     }
 }
-
-
-
 
 @end

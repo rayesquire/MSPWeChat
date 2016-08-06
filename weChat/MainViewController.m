@@ -8,8 +8,9 @@
 #import "MainViewController.h"
 #import "MYNavigationController.h"
 #import "CWeChat.h"
-#import "findView.h"
 #import "CContacts.h"
+#import "MSPContactsVC.h"
+#import "MSPDiscoverVC.h"
 #import "MSPMineVC.h"
 
 //#import "MYTabBar.h"
@@ -23,10 +24,10 @@
     CWeChat *view1 = [[CWeChat alloc]init];
     [self addViewContronller:view1 withTitle:@"微信" andImage:@"tabbar_mainframe" andSelectedImage:@"tabbar_mainframeHL"];
     
-    CContacts *view2 = [[CContacts alloc]init];
+    MSPContactsVC *view2 = [[MSPContactsVC alloc]init];
     [self addViewContronller:view2 withTitle:@"通讯录" andImage:@"tabbar_contacts" andSelectedImage:@"tabbar_contactsHL"];
     
-    findView *view3 = [[findView alloc]init];
+    MSPDiscoverVC *view3 = [[MSPDiscoverVC alloc]init];
     [self addViewContronller:view3 withTitle:@"发现" andImage:@"tabbar_discover" andSelectedImage:@"tabbar_discoverHL"];
     
     MSPMineVC *view4 = [[MSPMineVC alloc]init];
