@@ -7,12 +7,20 @@
 //
 
 #import "MSPContactInformationVC.h"
-#import "MSPContactModel.h"
 #import "MSPContactsInformationCell.h"
+#import "MSPContactModel.h"
+#import "MSPBinaryButton.h"
+#import "MSPContactsInformationSettingVC.h"
 
-@interface MSPContactInformationVC () <UITableViewDelegate,UITableViewDataSource>
+#import <Masonry.h>
+
+@interface MSPContactInformationVC () <UITableViewDelegate,
+                                       UITableViewDataSource,
+                                       MSPBinaryButtonDelegate>
 
 @property (nonatomic, readwrite, strong) UITableView *tableView;
+@property (nonatomic, readwrite, strong) MSPBinaryButton *button;
+
 
 @end
 
@@ -27,50 +35,41 @@
     UIBarButtonItem *more = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_more"] style:UIBarButtonItemStyleDone target:self action:@selector(more)];
     self.navigationItem.rightBarButtonItem = more;
 
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.backgroundColor = BACKGROUND_COLOR;
     [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.equalTo(self.view.mas_height);
+    }];
     
-    UIButton *sendMessage = [UIButton buttonWithType:UIButtonTypeSystem];
-    [sendMessage setTitle:@"发消息" forState:UIControlStateNormal];
-    [sendMessage.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [sendMessage setFrame:CGRectMake(15, 400, SCREEN_WIDTH - 30, 40)];
-    [sendMessage setTintColor:[UIColor whiteColor]];
-    sendMessage.layer.masksToBounds = YES;
-    sendMessage.layer.cornerRadius = 4;
-    sendMessage.backgroundColor = [UIColor greenColor];
-    [sendMessage addTarget:self action:@selector(sendMessageView) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *facetime = [UIButton buttonWithType:UIButtonTypeSystem];
-    [facetime setTitle:@"视频聊天" forState:UIControlStateNormal];
-    [facetime.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [facetime setTintColor:[UIColor blackColor]];
-    [facetime setFrame:CGRectMake(15, 455, SCREEN_WIDTH - 30, 40)];
-    facetime.layer.masksToBounds = YES;
-    facetime.layer.cornerRadius = 4;
-    facetime.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:facetime];
-    [self.view addSubview:sendMessage];
+    _button = [[MSPBinaryButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 115)];
+    _button.delegate = self;
+    _tableView.tableFooterView = _button;
     
 }
 
-- (void)sendMessageView
-{
-//    CChat *chatView = [[CChat alloc]init];
-//    self.delegate = chatView;
-//    [self.delegate chatViewWithuid:_uid remark:@"丁凡男神"];
-//    [chatView setTitle:@"丁凡男神"];
-//    [self.navigationController pushViewController:chatView animated:YES];
+#pragma mark - MSPBinaryButtonDelegate
+// chat view
+- (void)clickWithMessage {
+//    _model
 }
 
+- (void)clickWithVideo {
+//    _model
+}
+
+#pragma mark - UITableView delegate & datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 2) return 2;
+    if (section == 2) return 3;
     else return 1;
 }
 
@@ -78,8 +77,7 @@
     static NSString *cellIdentifier = @"MSPContactInformationCell";
     MSPContactsInformationCell *cell = [[MSPContactsInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     if (indexPath.section == 0) {
-
-
+        cell.model = _model;
     }
     else if (indexPath.section == 1){
         cell.textLabel.text = @"设置备注和标签";
@@ -88,27 +86,48 @@
     }
     else if (indexPath.section == 2){
         switch (indexPath.row) {
-            case 0:
-            {
+            case 0: {
                 cell.textLabel.text = @"地区";
-            }
                 break;
-            case 1:
-            {
-                cell.textLabel.text = @"相册";
             }
+            case 1: {
+                cell.textLabel.text = @"个人相册";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;
+            }
+            case 2: {
+                cell.textLabel.text = @"更多";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            }
         }
     }
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) return 90;
+    return 44;
+}
 
-- (void)more
-{
-//    detailSettings *settings = [[detailSettings alloc]init];
-//    settings.title = @"资料设置";
-//    [self.navigationController pushViewController:settings animated:YES];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 2) return 20;
+    return 1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+- (void)more {
+    MSPContactsInformationSettingVC *con = [[MSPContactsInformationSettingVC alloc] init];
+    con.model = _model;
+    [self.navigationController pushViewController:con animated:YES];
 }
 
 @end

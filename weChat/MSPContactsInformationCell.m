@@ -11,9 +11,9 @@
 
 #import "UIImage+getImage.h"
 
-#define theNameSize 12
-#define theAccountSize 12
-#define theRemarkSize 13
+#define theNameSize 13
+#define theAccountSize 13
+#define theRemarkSize 15
 
 @interface MSPContactsInformationCell ()
 
@@ -31,13 +31,15 @@
     
     CGFloat userImageX = THESPACE * 1.5;
     CGFloat userImageY = THESPACE;
-    CGRect userImageRect = CGRectMake(userImageX, userImageY, 60, 60);
+    CGRect userImageRect = CGRectMake(userImageX, userImageY, 70, 70);
     _userImage = [[UIImageView alloc] initWithFrame:userImageRect];
     _userImage.image = [UIImage msp_image:model.userImage];
+    _userImage.layer.cornerRadius = 5;
+    _userImage.layer.masksToBounds = YES;
     [self.contentView addSubview:_userImage];
     
-    CGFloat remarkX = CGRectGetMaxX(userImageRect) + THESPACE;
-    CGFloat remarkY = 18;
+    CGFloat remarkX = CGRectGetMaxX(userImageRect) + THESPACE * 1.5;
+    CGFloat remarkY = 16;
     CGSize remarkSize = [model.remark sizeWithAttributes:@{NSFontAttributeName :[UIFont systemFontOfSize:theRemarkSize]}];
     CGRect remarkRect = CGRectMake(remarkX, remarkY, remarkSize.width, remarkSize.height);
     _remark = [[UILabel alloc] initWithFrame:remarkRect];
@@ -56,23 +58,23 @@
     [self.contentView addSubview:_sexImage];
     
     CGFloat accountX = remarkX;
-    CGFloat accountY = CGRectGetMaxY(remarkRect) + THESPACE;
+    CGFloat accountY = CGRectGetMaxY(remarkRect) + THESPACE * 0.8;
     CGSize accountSize = [model.account sizeWithAttributes:@{NSFontAttributeName :[UIFont systemFontOfSize:theAccountSize]}];
-    CGRect accountRect = CGRectMake(accountX, accountY, accountSize.width, accountSize.height);
+    CGRect accountRect = CGRectMake(accountX, accountY, accountSize.width + 100, accountSize.height);
     _account = [[UILabel alloc] initWithFrame:accountRect];
     _account.font = [UIFont systemFontOfSize:theAccountSize];
     [_account setTextColor:[UIColor grayColor]];
-    _account.text = model.account;
+    _account.text = [NSString stringWithFormat:@"微信号:   %@",model.account];
     [self.contentView addSubview:_account];
     
     CGFloat nameX = remarkX;
     CGFloat nameY = CGRectGetMaxY(accountRect) + THESPACE / 2;
     CGSize nameSize = [model.name sizeWithAttributes:@{NSFontAttributeName :[UIFont systemFontOfSize:theNameSize]}];
-    CGRect nameRect = CGRectMake(nameX, nameY, nameSize.width, nameSize.height);
+    CGRect nameRect = CGRectMake(nameX, nameY, nameSize.width + 100, nameSize.height);
     _name = [[UILabel alloc] initWithFrame:nameRect];
     _name.font = [UIFont systemFontOfSize:theNameSize];
     [_name setTextColor:[UIColor grayColor]];
-    _name.text = model.name;
+    _name.text =[NSString stringWithFormat:@"昵称:   %@",model.name];
     [self.contentView addSubview:_name];
     
 }

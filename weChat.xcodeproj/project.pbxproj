@@ -38,6 +38,8 @@
 		A68D981C1B64CBD10008D926 /* weChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D981B1B64CBD10008D926 /* weChatView.m */; };
 		A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A69AB1C11BE2464300175EEF /* RecordVoice.m */; };
 		A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */; };
+		A69C06111D57155400CD2651 /* MSPBinaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06101D57155400CD2651 /* MSPBinaryButton.m */; };
+		A69C06141D5720AD00CD2651 /* MSPContactsInformationSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */; };
 		A6C004D21B7349FA001BE561 /* gjqt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6C004D11B7349FA001BE561 /* gjqt.jpg */; };
 		A6C004D51B7382B4001BE561 /* Mmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D41B7382B4001BE561 /* Mmoments.m */; };
 		A6C004D81B73852F001BE561 /* Vmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D71B73852F001BE561 /* Vmoments.m */; };
@@ -53,8 +55,6 @@
 		A6CB62CE1D55CDDB00136AB1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A64693931BE5E39500A69DFB /* libsqlite3.0.tbd */; };
 		A6CB62CF1D55CDE000136AB1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A64693951BE5E39C00A69DFB /* libsqlite3.tbd */; };
 		A6CB62E71D56214E00136AB1 /* MSPContactInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB62E61D56214E00136AB1 /* MSPContactInformationVC.m */; };
-		A6D115E71B6A0ADA00BC23BD /* detailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D115E61B6A0ADA00BC23BD /* detailView.m */; };
-		A6D115EA1B6A520C00BC23BD /* detailSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D115E91B6A520C00BC23BD /* detailSettings.m */; };
 		A6E4C6061B65126900A2536E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E4C6051B65126900A2536E /* MainViewController.m */; };
 		A6FA51731BCCC6CF00041488 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BDB2551BC94B1A00911985 /* AVFoundation.framework */; };
 		A6FA51751BCCC6D600041488 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FA51741BCCC6D600041488 /* MapKit.framework */; };
@@ -142,6 +142,10 @@
 		A69AB1C11BE2464300175EEF /* RecordVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVoice.m; sourceTree = "<group>"; };
 		A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationCell.h; sourceTree = "<group>"; };
 		A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactsInformationCell.m; sourceTree = "<group>"; };
+		A69C060F1D57155400CD2651 /* MSPBinaryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPBinaryButton.h; sourceTree = "<group>"; };
+		A69C06101D57155400CD2651 /* MSPBinaryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPBinaryButton.m; sourceTree = "<group>"; };
+		A69C06121D5720AD00CD2651 /* MSPContactsInformationSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationSettingVC.h; sourceTree = "<group>"; };
+		A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactsInformationSettingVC.m; sourceTree = "<group>"; };
 		A6BDB2551BC94B1A00911985 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6C004D11B7349FA001BE561 /* gjqt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gjqt.jpg; sourceTree = "<group>"; };
 		A6C004D31B7382B4001BE561 /* Mmoments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mmoments.h; sourceTree = "<group>"; };
@@ -167,10 +171,6 @@
 		A6CB62CC1D55C7E000136AB1 /* UIImage+getImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+getImage.m"; sourceTree = "<group>"; };
 		A6CB62E51D56214E00136AB1 /* MSPContactInformationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactInformationVC.h; sourceTree = "<group>"; };
 		A6CB62E61D56214E00136AB1 /* MSPContactInformationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactInformationVC.m; sourceTree = "<group>"; };
-		A6D115E51B6A0ADA00BC23BD /* detailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailView.h; sourceTree = "<group>"; };
-		A6D115E61B6A0ADA00BC23BD /* detailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailView.m; sourceTree = "<group>"; };
-		A6D115E81B6A520C00BC23BD /* detailSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailSettings.h; sourceTree = "<group>"; };
-		A6D115E91B6A520C00BC23BD /* detailSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailSettings.m; sourceTree = "<group>"; };
 		A6E4C6041B65126900A2536E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A6E4C6051B65126900A2536E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A6FA51741BCCC6D600041488 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -430,6 +430,7 @@
 		A68D97F31B64CA3F0008D926 /* weChat */ = {
 			isa = PBXGroup;
 			children = (
+				A67A023F1D543D0B00E65107 /* PrefixHeader.pch */,
 				A614574D1BD74C56002BFDEA /* Extension */,
 				A6CB62C71D55C6EB00136AB1 /* Category */,
 				A61BD7211BD64C0D00D4FD96 /* Main */,
@@ -454,14 +455,9 @@
 				A6C530B91B6DB3C30000CB82 /* publicViewController.m */,
 				A6C530BB1B6DC3210000CB82 /* searchPublicViewController.h */,
 				A6C530BC1B6DC3210000CB82 /* searchPublicViewController.m */,
-				A6D115E51B6A0ADA00BC23BD /* detailView.h */,
-				A6D115E61B6A0ADA00BC23BD /* detailView.m */,
-				A6D115E81B6A520C00BC23BD /* detailSettings.h */,
-				A6D115E91B6A520C00BC23BD /* detailSettings.m */,
 				A618DDEB1BD86A5F00400218 /* MYTabBar.h */,
 				A618DDEC1BD86A5F00400218 /* MYTabBar.m */,
 				A6C004D11B7349FA001BE561 /* gjqt.jpg */,
-				A67A023F1D543D0B00E65107 /* PrefixHeader.pch */,
 				A68D97F41B64CA3F0008D926 /* Supporting Files */,
 			);
 			path = weChat;
@@ -519,6 +515,8 @@
 				A6CB62BF1D55832400136AB1 /* MSPContactsVC.m */,
 				A6CB62E51D56214E00136AB1 /* MSPContactInformationVC.h */,
 				A6CB62E61D56214E00136AB1 /* MSPContactInformationVC.m */,
+				A69C06121D5720AD00CD2651 /* MSPContactsInformationSettingVC.h */,
+				A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -530,6 +528,8 @@
 				A6CB62C51D55C57800136AB1 /* MSPContactsCell.m */,
 				A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */,
 				A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */,
+				A69C060F1D57155400CD2651 /* MSPBinaryButton.h */,
+				A69C06101D57155400CD2651 /* MSPBinaryButton.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -735,18 +735,18 @@
 				A67C632B1BE48BAB00E42769 /* UIImage+Extension.m in Sources */,
 				A67A02511D547F4C00E65107 /* MSPRegionSelectCell.m in Sources */,
 				A6C004DB1B7396AA001BE561 /* Cmoments.m in Sources */,
-				A6D115E71B6A0ADA00BC23BD /* detailView.m in Sources */,
 				A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */,
 				A61BD7201BD649F500D4FD96 /* MYNavigationController.m in Sources */,
 				A6FFB5521BD3DBE5007FCB7C /* VFriendsMoments.m in Sources */,
 				A618DDED1BD86A5F00400218 /* MYTabBar.m in Sources */,
 				A668320E1BDCFCA9004197F5 /* InputBar.m in Sources */,
-				A6D115EA1B6A520C00BC23BD /* detailSettings.m in Sources */,
 				A6C530BA1B6DB3C30000CB82 /* publicViewController.m in Sources */,
 				A67A02451D547A1700E65107 /* MSPPersonalInformationModel.m in Sources */,
 				A67A024B1D547B0900E65107 /* MSPMineVC.m in Sources */,
 				A61457501BD74C8A002BFDEA /* MYMoreMenu.m in Sources */,
 				A67A02481D547A6900E65107 /* MSPPersonalInformationCell.m in Sources */,
+				A69C06111D57155400CD2651 /* MSPBinaryButton.m in Sources */,
+				A69C06141D5720AD00CD2651 /* MSPContactsInformationSettingVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
