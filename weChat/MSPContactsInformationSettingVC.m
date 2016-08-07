@@ -66,25 +66,29 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     
-    UISwitch *sw = [[UISwitch alloc]init];
+    UISwitch *sw = [[UISwitch alloc] init];
     
     if (indexPath.section == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"设置备注及标签";
-    }else if (indexPath.section == 1){
+    }
+    else if (indexPath.section == 1){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"把他/她推荐给朋友";
-    }else if (indexPath.section == 2){
+    }
+    else if (indexPath.section == 2){
         cell.accessoryView = sw;
         cell.textLabel.text = @"设为星标朋友";
-    }else if (indexPath.section == 3){
+    }
+    else if (indexPath.section == 3){
         cell.accessoryView = sw;
         if (indexPath.row == 0) {
             cell.textLabel.text = @"不让他/她看我的朋友圈";
         }else {
             cell.textLabel.text = @"不看他/她的朋友圈";
         }
-    }else if (indexPath.section == 4){
+    }
+    else if (indexPath.section == 4){
         if (indexPath.row == 0) {
             cell.textLabel.text = @"加入黑名单";
             cell.accessoryView = sw;
@@ -110,9 +114,8 @@
 }
 
 // button
-- (void)deleteContact
-{
-    ;
+- (void)deleteContact {
+    
 }
 
 

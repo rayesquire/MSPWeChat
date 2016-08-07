@@ -106,14 +106,13 @@
 }
 
 #pragma mark - calculate time
-- (NSString *)timeToTime:(NSString *)aString
-{
-    NSString *over = [[NSString alloc]init];
-    NSDateFormatter *trans = [[NSDateFormatter alloc]init];
+- (NSString *)timeToTime:(NSString *)aString {
+    NSString *over = [[NSString alloc] init];
+    NSDateFormatter *trans = [[NSDateFormatter alloc] init];
     [trans setDateFormat:@"yyyyMMddHHmmss"];
     NSDate *dateGet = [trans dateFromString:aString];
     NSDate *dateNow = [NSDate date];
-    NSDateFormatter *makeZeroFormatter = [[NSDateFormatter alloc]init];
+    NSDateFormatter *makeZeroFormatter = [[NSDateFormatter alloc] init];
     [makeZeroFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
     NSString *zeroString = [makeZeroFormatter stringFromDate:dateNow];
     NSDateFormatter *normal = [[NSDateFormatter alloc]init];
@@ -123,23 +122,20 @@
         int a = [[aString substringWithRange:NSMakeRange(2, 2)] intValue];
         int b = [[aString substringWithRange:NSMakeRange(4, 2)] intValue];
         int c = [[aString substringWithRange:NSMakeRange(6, 2)] intValue];
-        if (b < 10) {
-            b = (int)b;
-        }
-        if (c < 10) {
-            c = (int)c;
-        }
+        if (b < 10) b = (int)b;
+        if (c < 10) c = (int)c;
         over = [NSString stringWithFormat:@"%i/%i/%i",a,b,c];
-    }else {
+    }
+    else {
         NSTimeInterval superInterval = [GMTZeroDate timeIntervalSinceDate:dateGet];
         if (superInterval <= 0){
             NSDateFormatter *tmp = [[NSDateFormatter alloc]init];
             [tmp setDateFormat:@"HH:mm"];
             NSString *dateString = [tmp stringFromDate:dateGet];
             over = dateString;
-        }else if (superInterval > 0 && superInterval <= DAY){
-            over = @"昨天";
-        }else if (superInterval > DAY && superInterval < WEEK){
+        }
+        else if (superInterval > 0 && superInterval <= DAY) over = @"昨天";
+        else if (superInterval > DAY && superInterval < WEEK) {
             NSCalendar *cal = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *comps = [[NSDateComponents alloc] init];
             NSInteger unitFlags =NSCalendarUnitYear | NSCalendarUnitMonth |NSCalendarUnitDay | NSCalendarUnitWeekday |
@@ -169,16 +165,13 @@
                     over = @"星期六";
                     break;
             }
-        }else {
+        }
+        else {
             int a = [[aString substringWithRange:NSMakeRange(2, 2)] intValue];
             int b = [[aString substringWithRange:NSMakeRange(4, 2)] intValue];
             int c = [[aString substringWithRange:NSMakeRange(6, 2)] intValue];
-            if (b < 10) {
-                b = (int)b;
-            }
-            if (c < 10) {
-                c = (int)c;
-            }
+            if (b < 10) b = (int)b;
+            if (c < 10) c = (int)c;
             over = [NSString stringWithFormat:@"%i/%i/%i",a,b,c];
         }
     }

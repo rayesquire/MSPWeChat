@@ -17,8 +17,6 @@
 		A61BD7341BD650F700D4FD96 /* MYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD7331BD650F700D4FD96 /* MYTool.m */; };
 		A61BD73F1BD6583400D4FD96 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD73E1BD6583400D4FD96 /* UIBarButtonItem+Extension.m */; };
 		A6270EA41B866A4700A9A9AD /* MWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6270EA31B866A4700A9A9AD /* MWeChat.m */; };
-		A6270EA81B866BA600A9A9AD /* VWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6270EA71B866BA600A9A9AD /* VWeChat.m */; };
-		A6270EAC1B86725400A9A9AD /* CWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6270EAB1B86725400A9A9AD /* CWeChat.m */; };
 		A65469181B6D2AFD000C344E /* groupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A65469171B6D2AFD000C344E /* groupChatViewController.m */; };
 		A654691B1B6D2F5A000C344E /* tagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A654691A1B6D2F5A000C344E /* tagViewController.m */; };
 		A65F58181B779D8500804531 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = A65F58171B779D8500804531 /* ChineseString.m */; };
@@ -35,11 +33,14 @@
 		A68D97F71B64CA3F0008D926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F61B64CA3F0008D926 /* main.m */; };
 		A68D97FA1B64CA3F0008D926 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F91B64CA3F0008D926 /* AppDelegate.m */; };
 		A68D98021B64CA3F0008D926 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D98011B64CA3F0008D926 /* Images.xcassets */; };
-		A68D981C1B64CBD10008D926 /* weChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D981B1B64CBD10008D926 /* weChatView.m */; };
 		A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A69AB1C11BE2464300175EEF /* RecordVoice.m */; };
 		A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */; };
 		A69C06111D57155400CD2651 /* MSPBinaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06101D57155400CD2651 /* MSPBinaryButton.m */; };
 		A69C06141D5720AD00CD2651 /* MSPContactsInformationSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */; };
+		A69C06171D57471700CD2651 /* MSPChatListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06161D57471700CD2651 /* MSPChatListVC.m */; };
+		A69C061B1D57498E00CD2651 /* MSPContactChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C061A1D57498E00CD2651 /* MSPContactChatModel.m */; };
+		A69C061E1D575F2100CD2651 /* MSPChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C061D1D575F2100CD2651 /* MSPChatListCell.m */; };
+		A69C06211D5760A100CD2651 /* NSString+timeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06201D5760A100CD2651 /* NSString+timeSign.m */; };
 		A6C004D21B7349FA001BE561 /* gjqt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6C004D11B7349FA001BE561 /* gjqt.jpg */; };
 		A6C004D51B7382B4001BE561 /* Mmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D41B7382B4001BE561 /* Mmoments.m */; };
 		A6C004D81B73852F001BE561 /* Vmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D71B73852F001BE561 /* Vmoments.m */; };
@@ -96,10 +97,6 @@
 		A61BD73E1BD6583400D4FD96 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		A6270EA21B866A4700A9A9AD /* MWeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWeChat.h; sourceTree = "<group>"; };
 		A6270EA31B866A4700A9A9AD /* MWeChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWeChat.m; sourceTree = "<group>"; };
-		A6270EA61B866BA600A9A9AD /* VWeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWeChat.h; sourceTree = "<group>"; };
-		A6270EA71B866BA600A9A9AD /* VWeChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWeChat.m; sourceTree = "<group>"; };
-		A6270EAA1B86725400A9A9AD /* CWeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWeChat.h; sourceTree = "<group>"; };
-		A6270EAB1B86725400A9A9AD /* CWeChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWeChat.m; sourceTree = "<group>"; };
 		A64693931BE5E39500A69DFB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A64693951BE5E39C00A69DFB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A65469161B6D2AFD000C344E /* groupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupChatViewController.h; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 		A68D98011B64CA3F0008D926 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A68D980A1B64CA3F0008D926 /* weChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68D980F1B64CA3F0008D926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A68D981A1B64CBD10008D926 /* weChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weChatView.h; sourceTree = "<group>"; };
-		A68D981B1B64CBD10008D926 /* weChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weChatView.m; sourceTree = "<group>"; };
 		A69AB1C01BE2464300175EEF /* RecordVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVoice.h; sourceTree = "<group>"; };
 		A69AB1C11BE2464300175EEF /* RecordVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVoice.m; sourceTree = "<group>"; };
 		A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationCell.h; sourceTree = "<group>"; };
@@ -146,6 +141,14 @@
 		A69C06101D57155400CD2651 /* MSPBinaryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPBinaryButton.m; sourceTree = "<group>"; };
 		A69C06121D5720AD00CD2651 /* MSPContactsInformationSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationSettingVC.h; sourceTree = "<group>"; };
 		A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactsInformationSettingVC.m; sourceTree = "<group>"; };
+		A69C06151D57471700CD2651 /* MSPChatListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatListVC.h; sourceTree = "<group>"; };
+		A69C06161D57471700CD2651 /* MSPChatListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatListVC.m; sourceTree = "<group>"; };
+		A69C06191D57498E00CD2651 /* MSPContactChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactChatModel.h; sourceTree = "<group>"; };
+		A69C061A1D57498E00CD2651 /* MSPContactChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactChatModel.m; sourceTree = "<group>"; };
+		A69C061C1D575F2100CD2651 /* MSPChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatListCell.h; sourceTree = "<group>"; };
+		A69C061D1D575F2100CD2651 /* MSPChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatListCell.m; sourceTree = "<group>"; };
+		A69C061F1D5760A100CD2651 /* NSString+timeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+timeSign.h"; sourceTree = "<group>"; };
+		A69C06201D5760A100CD2651 /* NSString+timeSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+timeSign.m"; sourceTree = "<group>"; };
 		A6BDB2551BC94B1A00911985 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6C004D11B7349FA001BE561 /* gjqt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gjqt.jpg; sourceTree = "<group>"; };
 		A6C004D31B7382B4001BE561 /* Mmoments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mmoments.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 			children = (
 				A6270EA21B866A4700A9A9AD /* MWeChat.h */,
 				A6270EA31B866A4700A9A9AD /* MWeChat.m */,
+				A69C06191D57498E00CD2651 /* MSPContactChatModel.h */,
+				A69C061A1D57498E00CD2651 /* MSPContactChatModel.m */,
 				A6FA51811BCE822000041488 /* MChat.h */,
 				A6FA51821BCE822000041488 /* MChat.m */,
 			);
@@ -291,8 +296,6 @@
 		A61BD7271BD64CB500D4FD96 /* VIEW */ = {
 			isa = PBXGroup;
 			children = (
-				A6270EA61B866BA600A9A9AD /* VWeChat.h */,
-				A6270EA71B866BA600A9A9AD /* VWeChat.m */,
 				A6FA51871BCE824700041488 /* VChat.h */,
 				A6FA51881BCE824700041488 /* VChat.m */,
 				A668320C1BDCFCA9004197F5 /* InputBar.h */,
@@ -306,8 +309,6 @@
 		A61BD7281BD64CB900D4FD96 /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
-				A6270EAA1B86725400A9A9AD /* CWeChat.h */,
-				A6270EAB1B86725400A9A9AD /* CWeChat.m */,
 				A6FA518A1BCE825900041488 /* CChat.h */,
 				A6FA518B1BCE825900041488 /* CChat.m */,
 			);
@@ -344,6 +345,7 @@
 		A61BD72F1BD64D2300D4FD96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A69C06181D57478C00CD2651 /* WeChat */,
 				A6CB62E31D561EF200136AB1 /* Contacts */,
 				A6CB62BD1D5582E400136AB1 /* Discover */,
 				A67A02551D54855A00E65107 /* Mine */,
@@ -390,6 +392,7 @@
 		A67A02561D54857F00E65107 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A69C06251D5767CF00CD2651 /* WeChat */,
 				A6CB62E41D561EFE00136AB1 /* Contacts */,
 				A67A02571D54858A00E65107 /* Mine */,
 			);
@@ -439,8 +442,6 @@
 				A61BD72F1BD64D2300D4FD96 /* Controller */,
 				A61BD7221BD64C7000D4FD96 /* weChat */,
 				A61BD7241BD64C8400D4FD96 /* discover */,
-				A68D981A1B64CBD10008D926 /* weChatView.h */,
-				A68D981B1B64CBD10008D926 /* weChatView.m */,
 				A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */,
 				A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */,
 				A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */,
@@ -490,6 +491,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A69C06181D57478C00CD2651 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				A69C06151D57471700CD2651 /* MSPChatListVC.h */,
+				A69C06161D57471700CD2651 /* MSPChatListVC.m */,
+			);
+			name = WeChat;
+			sourceTree = "<group>";
+		};
+		A69C06251D5767CF00CD2651 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				A69C061C1D575F2100CD2651 /* MSPChatListCell.h */,
+				A69C061D1D575F2100CD2651 /* MSPChatListCell.m */,
+			);
+			name = WeChat;
+			sourceTree = "<group>";
+		};
 		A6CB62BD1D5582E400136AB1 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +523,8 @@
 			children = (
 				A6CB62CB1D55C7E000136AB1 /* UIImage+getImage.h */,
 				A6CB62CC1D55C7E000136AB1 /* UIImage+getImage.m */,
+				A69C061F1D5760A100CD2651 /* NSString+timeSign.h */,
+				A69C06201D5760A100CD2651 /* NSString+timeSign.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -709,21 +730,20 @@
 				A6C004D81B73852F001BE561 /* Vmoments.m in Sources */,
 				A65469181B6D2AFD000C344E /* groupChatViewController.m in Sources */,
 				A68D97FA1B64CA3F0008D926 /* AppDelegate.m in Sources */,
-				A6270EA81B866BA600A9A9AD /* VWeChat.m in Sources */,
+				A69C06211D5760A100CD2651 /* NSString+timeSign.m in Sources */,
 				A68D97F71B64CA3F0008D926 /* main.m in Sources */,
 				A6FA51891BCE824700041488 /* VChat.m in Sources */,
 				A6FFB54F1BD3DB99007FCB7C /* MFriendsMoments.m in Sources */,
 				A6FA518C1BCE825900041488 /* CChat.m in Sources */,
 				A6CB62BC1D55806400136AB1 /* MSPDiscoverVC.m in Sources */,
 				A67A024E1D547D0800E65107 /* MSPRegionSelectVC.m in Sources */,
-				A68D981C1B64CBD10008D926 /* weChatView.m in Sources */,
 				A6C530BD1B6DC3210000CB82 /* searchPublicViewController.m in Sources */,
 				A61BD7341BD650F700D4FD96 /* MYTool.m in Sources */,
 				A65F58181B779D8500804531 /* ChineseString.m in Sources */,
 				A6CB62C31D55857900136AB1 /* MSPContactModel.m in Sources */,
-				A6270EAC1B86725400A9A9AD /* CWeChat.m in Sources */,
 				A654691B1B6D2F5A000C344E /* tagViewController.m in Sources */,
 				A61BD71D1BD61FFB00D4FD96 /* UIView+Extension.m in Sources */,
+				A69C06171D57471700CD2651 /* MSPChatListVC.m in Sources */,
 				A6E4C6061B65126900A2536E /* MainViewController.m in Sources */,
 				A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */,
 				A6FFB5551BD3DC26007FCB7C /* CFriendsMoments.m in Sources */,
@@ -735,11 +755,13 @@
 				A67C632B1BE48BAB00E42769 /* UIImage+Extension.m in Sources */,
 				A67A02511D547F4C00E65107 /* MSPRegionSelectCell.m in Sources */,
 				A6C004DB1B7396AA001BE561 /* Cmoments.m in Sources */,
+				A69C061B1D57498E00CD2651 /* MSPContactChatModel.m in Sources */,
 				A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */,
 				A61BD7201BD649F500D4FD96 /* MYNavigationController.m in Sources */,
 				A6FFB5521BD3DBE5007FCB7C /* VFriendsMoments.m in Sources */,
 				A618DDED1BD86A5F00400218 /* MYTabBar.m in Sources */,
 				A668320E1BDCFCA9004197F5 /* InputBar.m in Sources */,
+				A69C061E1D575F2100CD2651 /* MSPChatListCell.m in Sources */,
 				A6C530BA1B6DB3C30000CB82 /* publicViewController.m in Sources */,
 				A67A02451D547A1700E65107 /* MSPPersonalInformationModel.m in Sources */,
 				A67A024B1D547B0900E65107 /* MSPMineVC.m in Sources */,

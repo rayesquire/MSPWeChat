@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "MSPPersonalInformationModel.h"
 #import "MSPContactModel.h"
+#import "MSPContactChatModel.h"
 
 @interface AppDelegate ()
 
@@ -19,19 +20,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    self.window.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = BACKGROUND_COLOR;
     [self.window makeKeyAndVisible];
     
     MainViewController *mainViewController = [[MainViewController alloc]init];
     self.window.rootViewController = mainViewController;
     
-    [self writeData];
+    [self writePeople];
+    [self writeChatData];
     
     return YES;
 }
 
-- (void)writeData {
+- (void)writePeople {
+    
     MSPPersonalInformationModel *model = [[MSPPersonalInformationModel alloc] init];
     model.ID = 1;
     model.name = @"尾巴超大号";
@@ -84,6 +87,22 @@
     [MSPContactModel createOrUpdateInRealm:realm withValue:bobo];
     [MSPContactModel createOrUpdateInRealm:realm withValue:aaa];
     [MSPContactModel createOrUpdateInRealm:realm withValue:ccc];
+    [realm commitWriteTransaction];
+
+}
+
+- (void)writeChatData {
+    
+    
+    MSPContactChatModel *aaa = [[MSPContactChatModel alloc] init];
+    aaa.content = @"sdjkajdlaksjdas";
+    aaa.time = 20160807212635;
+    aaa.userImage = @"dog.jpg";
+    aaa.remark = @"B";
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [MSPContactChatModel createOrUpdateInRealm:realm withValue:aaa];
     [realm commitWriteTransaction];
 
 }

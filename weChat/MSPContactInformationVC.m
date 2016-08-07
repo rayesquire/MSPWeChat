@@ -57,6 +57,7 @@
 // chat view
 - (void)clickWithMessage {
 //    _model
+    
 }
 
 - (void)clickWithVideo {
