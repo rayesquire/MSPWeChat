@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-weChat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00FB8B87BB2D8EAF5569ED930C9307CC</key>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0980D5322CD4AC93F6FACD135A5A8D0D</key>
+		<key>763446AE14B292EA3BD0585FC5661A23</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A8E37C973B96ED15FA006E7BE7B45806</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5CED0D1048AACAF70A1FE3845B328B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC133CA2B94EEDEDF493C1B6263B207A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D29D601607DB5D6A3EF5023B81D4A6C7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE12F493568BE4D11A165F746A824E31</key>
 		<dict>
 			<key>primary</key>
 			<true/>

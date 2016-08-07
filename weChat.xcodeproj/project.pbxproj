@@ -11,7 +11,6 @@
 		A61457501BD74C8A002BFDEA /* MYMoreMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A614574F1BD74C8A002BFDEA /* MYMoreMenu.m */; };
 		A61457531BD75C75002BFDEA /* MoreFunctionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61457521BD75C75002BFDEA /* MoreFunctionTableViewController.m */; };
 		A61457561BD778D7002BFDEA /* MoreMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61457551BD778D7002BFDEA /* MoreMenuTableViewCell.m */; };
-		A615127D1B6B1BAC007D2D6D /* newFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A615127C1B6B1BAC007D2D6D /* newFriendsView.m */; };
 		A618DDED1BD86A5F00400218 /* MYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A618DDEC1BD86A5F00400218 /* MYTabBar.m */; };
 		A61BD71D1BD61FFB00D4FD96 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD71C1BD61FFB00D4FD96 /* UIView+Extension.m */; };
 		A61BD7201BD649F500D4FD96 /* MYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD71F1BD649F500D4FD96 /* MYNavigationController.m */; };
@@ -22,8 +21,6 @@
 		A6270EAC1B86725400A9A9AD /* CWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6270EAB1B86725400A9A9AD /* CWeChat.m */; };
 		A65469181B6D2AFD000C344E /* groupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A65469171B6D2AFD000C344E /* groupChatViewController.m */; };
 		A654691B1B6D2F5A000C344E /* tagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A654691A1B6D2F5A000C344E /* tagViewController.m */; };
-		A65F57F11B77359400804531 /* MDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A65F57F01B77359400804531 /* MDetails.m */; };
-		A65F57F41B7737BC00804531 /* VDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A65F57F31B7737BC00804531 /* VDetails.m */; };
 		A65F58181B779D8500804531 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = A65F58171B779D8500804531 /* ChineseString.m */; };
 		A65F581A1B779D8F00804531 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = A65F58191B779D8F00804531 /* pinyin.c */; };
 		A668320E1BDCFCA9004197F5 /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A668320D1BDCFCA9004197F5 /* InputBar.m */; };
@@ -40,6 +37,7 @@
 		A68D98021B64CA3F0008D926 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D98011B64CA3F0008D926 /* Images.xcassets */; };
 		A68D981C1B64CBD10008D926 /* weChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D981B1B64CBD10008D926 /* weChatView.m */; };
 		A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A69AB1C11BE2464300175EEF /* RecordVoice.m */; };
+		A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */; };
 		A6C004D21B7349FA001BE561 /* gjqt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6C004D11B7349FA001BE561 /* gjqt.jpg */; };
 		A6C004D51B7382B4001BE561 /* Mmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D41B7382B4001BE561 /* Mmoments.m */; };
 		A6C004D81B73852F001BE561 /* Vmoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C004D71B73852F001BE561 /* Vmoments.m */; };
@@ -86,8 +84,6 @@
 		A61457521BD75C75002BFDEA /* MoreFunctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreFunctionTableViewController.m; sourceTree = "<group>"; };
 		A61457541BD778D7002BFDEA /* MoreMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreMenuTableViewCell.h; sourceTree = "<group>"; };
 		A61457551BD778D7002BFDEA /* MoreMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreMenuTableViewCell.m; sourceTree = "<group>"; };
-		A615127B1B6B1BAC007D2D6D /* newFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newFriendsView.h; sourceTree = "<group>"; };
-		A615127C1B6B1BAC007D2D6D /* newFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newFriendsView.m; sourceTree = "<group>"; };
 		A618DDEB1BD86A5F00400218 /* MYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTabBar.h; sourceTree = "<group>"; };
 		A618DDEC1BD86A5F00400218 /* MYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTabBar.m; sourceTree = "<group>"; };
 		A61BD71B1BD61FFB00D4FD96 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -110,10 +106,6 @@
 		A65469171B6D2AFD000C344E /* groupChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupChatViewController.m; sourceTree = "<group>"; };
 		A65469191B6D2F5A000C344E /* tagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tagViewController.h; sourceTree = "<group>"; };
 		A654691A1B6D2F5A000C344E /* tagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tagViewController.m; sourceTree = "<group>"; };
-		A65F57EF1B77359400804531 /* MDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDetails.h; sourceTree = "<group>"; };
-		A65F57F01B77359400804531 /* MDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDetails.m; sourceTree = "<group>"; };
-		A65F57F21B7737BC00804531 /* VDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDetails.h; sourceTree = "<group>"; };
-		A65F57F31B7737BC00804531 /* VDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDetails.m; sourceTree = "<group>"; };
 		A65F58161B779D8500804531 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
 		A65F58171B779D8500804531 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		A65F58191B779D8F00804531 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
@@ -148,6 +140,8 @@
 		A68D981B1B64CBD10008D926 /* weChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weChatView.m; sourceTree = "<group>"; };
 		A69AB1C01BE2464300175EEF /* RecordVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVoice.h; sourceTree = "<group>"; };
 		A69AB1C11BE2464300175EEF /* RecordVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVoice.m; sourceTree = "<group>"; };
+		A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationCell.h; sourceTree = "<group>"; };
+		A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactsInformationCell.m; sourceTree = "<group>"; };
 		A6BDB2551BC94B1A00911985 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6C004D11B7349FA001BE561 /* gjqt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gjqt.jpg; sourceTree = "<group>"; };
 		A6C004D31B7382B4001BE561 /* Mmoments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mmoments.h; sourceTree = "<group>"; };
@@ -228,7 +222,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A614574D1BD74C56002BFDEA /* EXTENSION */ = {
+		A614574D1BD74C56002BFDEA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				A61BD71B1BD61FFB00D4FD96 /* UIView+Extension.h */,
@@ -238,28 +232,10 @@
 				A67C63291BE48BAB00E42769 /* UIImage+Extension.h */,
 				A67C632A1BE48BAB00E42769 /* UIImage+Extension.m */,
 			);
-			name = EXTENSION;
+			name = Extension;
 			sourceTree = "<group>";
 		};
-		A617FB831BC7AD31002F97A3 /* MODUL */ = {
-			isa = PBXGroup;
-			children = (
-				A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */,
-				A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */,
-			);
-			name = MODUL;
-			sourceTree = "<group>";
-		};
-		A617FB841BC7ADB1002F97A3 /* VIEW */ = {
-			isa = PBXGroup;
-			children = (
-				A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */,
-				A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */,
-			);
-			name = VIEW;
-			sourceTree = "<group>";
-		};
-		A61BD7211BD64C0D00D4FD96 /* MAIN */ = {
+		A61BD7211BD64C0D00D4FD96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				A68D97F81B64CA3F0008D926 /* AppDelegate.h */,
@@ -278,7 +254,7 @@
 				A61457551BD778D7002BFDEA /* MoreMenuTableViewCell.m */,
 				A65F58091B778E9C00804531 /* sortChinese */,
 			);
-			name = MAIN;
+			name = Main;
 			sourceTree = "<group>";
 		};
 		A61BD7221BD64C7000D4FD96 /* weChat */ = {
@@ -289,16 +265,6 @@
 				A61BD7281BD64CB900D4FD96 /* CONTROLLER */,
 			);
 			name = weChat;
-			sourceTree = "<group>";
-		};
-		A61BD7231BD64C7B00D4FD96 /* contacts */ = {
-			isa = PBXGroup;
-			children = (
-				A61BD72B1BD64D0C00D4FD96 /* MODEL */,
-				A61BD72A1BD64D0400D4FD96 /* VIEW */,
-				A61BD7291BD64CFA00D4FD96 /* CONTROLLER */,
-			);
-			name = contacts;
 			sourceTree = "<group>";
 		};
 		A61BD7241BD64C8400D4FD96 /* discover */ = {
@@ -348,33 +314,6 @@
 			name = CONTROLLER;
 			sourceTree = "<group>";
 		};
-		A61BD7291BD64CFA00D4FD96 /* CONTROLLER */ = {
-			isa = PBXGroup;
-			children = (
-				A615127B1B6B1BAC007D2D6D /* newFriendsView.h */,
-				A615127C1B6B1BAC007D2D6D /* newFriendsView.m */,
-			);
-			name = CONTROLLER;
-			sourceTree = "<group>";
-		};
-		A61BD72A1BD64D0400D4FD96 /* VIEW */ = {
-			isa = PBXGroup;
-			children = (
-				A65F57F21B7737BC00804531 /* VDetails.h */,
-				A65F57F31B7737BC00804531 /* VDetails.m */,
-			);
-			name = VIEW;
-			sourceTree = "<group>";
-		};
-		A61BD72B1BD64D0C00D4FD96 /* MODEL */ = {
-			isa = PBXGroup;
-			children = (
-				A65F57EF1B77359400804531 /* MDetails.h */,
-				A65F57F01B77359400804531 /* MDetails.m */,
-			);
-			name = MODEL;
-			sourceTree = "<group>";
-		};
 		A61BD72C1BD64D1500D4FD96 /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,17 +341,17 @@
 			name = MODEL;
 			sourceTree = "<group>";
 		};
-		A61BD72F1BD64D2300D4FD96 /* CONTROLLER */ = {
+		A61BD72F1BD64D2300D4FD96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A6CB62E31D561EF200136AB1 /* Contacts */,
 				A6CB62BD1D5582E400136AB1 /* Discover */,
 				A67A02551D54855A00E65107 /* Mine */,
 			);
-			name = CONTROLLER;
+			name = Controller;
 			sourceTree = "<group>";
 		};
-		A61BD7311BD64D2D00D4FD96 /* MODEL */ = {
+		A61BD7311BD64D2D00D4FD96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A67A02431D547A1700E65107 /* MSPPersonalInformationModel.h */,
@@ -420,7 +359,7 @@
 				A6CB62C11D55857900136AB1 /* MSPContactModel.h */,
 				A6CB62C21D55857900136AB1 /* MSPContactModel.m */,
 			);
-			name = MODEL;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A65F58091B778E9C00804531 /* sortChinese */ = {
@@ -448,13 +387,13 @@
 			name = Mine;
 			sourceTree = "<group>";
 		};
-		A67A02561D54857F00E65107 /* VIEW */ = {
+		A67A02561D54857F00E65107 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A6CB62E41D561EFE00136AB1 /* Contacts */,
 				A67A02571D54858A00E65107 /* Mine */,
 			);
-			name = VIEW;
+			name = View;
 			sourceTree = "<group>";
 		};
 		A67A02571D54858A00E65107 /* Mine */ = {
@@ -491,19 +430,20 @@
 		A68D97F31B64CA3F0008D926 /* weChat */ = {
 			isa = PBXGroup;
 			children = (
+				A614574D1BD74C56002BFDEA /* Extension */,
 				A6CB62C71D55C6EB00136AB1 /* Category */,
-				A61BD7211BD64C0D00D4FD96 /* MAIN */,
-				A614574D1BD74C56002BFDEA /* EXTENSION */,
-				A61BD7311BD64D2D00D4FD96 /* MODEL */,
-				A67A02561D54857F00E65107 /* VIEW */,
-				A61BD72F1BD64D2300D4FD96 /* CONTROLLER */,
+				A61BD7211BD64C0D00D4FD96 /* Main */,
+				A61BD7311BD64D2D00D4FD96 /* Model */,
+				A67A02561D54857F00E65107 /* View */,
+				A61BD72F1BD64D2300D4FD96 /* Controller */,
 				A61BD7221BD64C7000D4FD96 /* weChat */,
-				A61BD7231BD64C7B00D4FD96 /* contacts */,
 				A61BD7241BD64C8400D4FD96 /* discover */,
-				A617FB831BC7AD31002F97A3 /* MODUL */,
-				A617FB841BC7ADB1002F97A3 /* VIEW */,
 				A68D981A1B64CBD10008D926 /* weChatView.h */,
 				A68D981B1B64CBD10008D926 /* weChatView.m */,
+				A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */,
+				A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */,
+				A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */,
+				A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */,
 				A6FFB5531BD3DC26007FCB7C /* CFriendsMoments.h */,
 				A6FFB5541BD3DC26007FCB7C /* CFriendsMoments.m */,
 				A65469161B6D2AFD000C344E /* groupChatViewController.h */,
@@ -588,6 +528,8 @@
 			children = (
 				A6CB62C41D55C57800136AB1 /* MSPContactsCell.h */,
 				A6CB62C51D55C57800136AB1 /* MSPContactsCell.m */,
+				A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */,
+				A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -765,7 +707,6 @@
 				A6FA51831BCE822000041488 /* MChat.m in Sources */,
 				A67A02541D54800900E65107 /* MSPAvatorVC.m in Sources */,
 				A6C004D81B73852F001BE561 /* Vmoments.m in Sources */,
-				A615127D1B6B1BAC007D2D6D /* newFriendsView.m in Sources */,
 				A65469181B6D2AFD000C344E /* groupChatViewController.m in Sources */,
 				A68D97FA1B64CA3F0008D926 /* AppDelegate.m in Sources */,
 				A6270EA81B866BA600A9A9AD /* VWeChat.m in Sources */,
@@ -791,11 +732,11 @@
 				A61BD73F1BD6583400D4FD96 /* UIBarButtonItem+Extension.m in Sources */,
 				A61457561BD778D7002BFDEA /* MoreMenuTableViewCell.m in Sources */,
 				A6C004D51B7382B4001BE561 /* Mmoments.m in Sources */,
-				A65F57F11B77359400804531 /* MDetails.m in Sources */,
 				A67C632B1BE48BAB00E42769 /* UIImage+Extension.m in Sources */,
 				A67A02511D547F4C00E65107 /* MSPRegionSelectCell.m in Sources */,
 				A6C004DB1B7396AA001BE561 /* Cmoments.m in Sources */,
 				A6D115E71B6A0ADA00BC23BD /* detailView.m in Sources */,
+				A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */,
 				A61BD7201BD649F500D4FD96 /* MYNavigationController.m in Sources */,
 				A6FFB5521BD3DBE5007FCB7C /* VFriendsMoments.m in Sources */,
 				A618DDED1BD86A5F00400218 /* MYTabBar.m in Sources */,
@@ -805,7 +746,6 @@
 				A67A02451D547A1700E65107 /* MSPPersonalInformationModel.m in Sources */,
 				A67A024B1D547B0900E65107 /* MSPMineVC.m in Sources */,
 				A61457501BD74C8A002BFDEA /* MYMoreMenu.m in Sources */,
-				A65F57F41B7737BC00804531 /* VDetails.m in Sources */,
 				A67A02481D547A6900E65107 /* MSPPersonalInformationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

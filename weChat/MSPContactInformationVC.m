@@ -8,6 +8,7 @@
 
 #import "MSPContactInformationVC.h"
 #import "MSPContactModel.h"
+#import "MSPContactsInformationCell.h"
 
 @interface MSPContactInformationVC () <UITableViewDelegate,UITableViewDataSource>
 
@@ -74,15 +75,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    static NSString *cellIdentifier = @"MSPContactInformationCell";
+    MSPContactsInformationCell *cell = [[MSPContactsInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     if (indexPath.section == 0) {
-//        VDetails *cell = [[VDetails alloc]init];
-        return cell;
-    }else if (indexPath.section == 1){
+
+
+    }
+    else if (indexPath.section == 1){
         cell.textLabel.text = @"设置备注和标签";
         cell.textLabel.textColor = [UIColor blackColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }else if (indexPath.section == 2){
+    }
+    else if (indexPath.section == 2){
         switch (indexPath.row) {
             case 0:
             {

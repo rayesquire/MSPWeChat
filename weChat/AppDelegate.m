@@ -47,7 +47,7 @@
     B.remark = @"张";
     B.account = @"dsadafdf";
     B.userImage = @"dog.jpg";
-    B.sex = @"nan";
+    B.sex = @"1";
     B.region = @"eg";
     
     MSPContactModel *bobo = [[MSPContactModel alloc] init];
@@ -56,7 +56,7 @@
     bobo.remark = @"啵啵啵";
     bobo.account = @"ewq1231";
     bobo.userImage = @"dog.jpg";
-    bobo.sex = @"nan";
+    bobo.sex = @"1";
     bobo.region = @"eg";
     
     MSPContactModel *aaa = [[MSPContactModel alloc] init];
@@ -65,7 +65,7 @@
     aaa.remark = @"大大";
     aaa.account = @"312ada";
     aaa.userImage = @"dog.jpg";
-    aaa.sex = @"nan";
+    aaa.sex = @"1";
     aaa.region = @"eg";
     
     MSPContactModel *ccc = [[MSPContactModel alloc] init];
@@ -74,7 +74,7 @@
     ccc.remark = @"江";
     ccc.account = @"gfdf";
     ccc.userImage = @"dog.jpg";
-    ccc.sex = @"nan";
+    ccc.sex = @"0";
     ccc.region = @"eg";
     
     RLMRealm *realm = [RLMRealm defaultRealm];
