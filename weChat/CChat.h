@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CWeChat.h"
 #import "CDetails.h"
 @class InputBar;
-@interface CChat : UIViewController <CWeChatViewControllerDelegate,ChatViewWithuid>
+@interface CChat : UIViewController 
 
 @property (nonatomic,strong) InputBar *inputBar;
 

@@ -7,10 +7,8 @@
 //
 
 #import "CChat.h"
-#import "MChat.h"
-#import "VChat.h"
-#import "CWeChat.h"
-#import "InputBar.h"
+
+#import "MSPInputBar.h"
 #import <AVFoundation/AVFoundation.h>
 #import "UIView+Extension.h"
 #import "RecordVoice.h"
@@ -21,7 +19,7 @@
 #define MYColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define DATABASENAME @"chatRecord.sqlite"
 #define TABLENAME @"chatRecord"
-@interface CChat () <UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,AVAudioRecorderDelegate,InputBarDelegate,VChatDelegate>
+@interface CChat () <UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,AVAudioRecorderDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,assign) NSInteger usd;   // id
@@ -50,7 +48,7 @@
     [self createTableAndSearch];
     [self layoutTableView];
     [self layoutRecordVoiceAlertView];
-    [self layoutInputBar];
+//    [self layoutInputBar];
 //    [self addBackItem];
 }
 
@@ -80,19 +78,19 @@
 
 #pragma mark - hide keyboard
 // 点击空白隐藏键盘
-- (void)hideKeyboard
-{
-    [self.inputBar.input resignFirstResponder];
-}
-
-- (void)layoutInputBar
-{
-    self.inputBar = [[InputBar alloc]initWithFrame:CGRectMake(0, SCREENHEIGHT - 49, SCREENWIDTH, 49)];
-    self.inputBar.backgroundColor = MYColor(245, 245, 247);
-    self.inputBar.input.delegate = self;
-    self.inputBar.delegate = self;
-    [self.view addSubview:self.inputBar];
-}
+//- (void)hideKeyboard
+//{
+//    [self.inputBar.input resignFirstResponder];
+//}
+//
+//- (void)layoutInputBar
+//{
+//    self.inputBar = [[InputBar alloc]initWithFrame:CGRectMake(0, SCREENHEIGHT - 49, SCREENWIDTH, 49)];
+//    self.inputBar.backgroundColor = MYColor(245, 245, 247);
+//    self.inputBar.input.delegate = self;
+//    self.inputBar.delegate = self;
+//    [self.view addSubview:self.inputBar];
+//}
 #warning back issue
 //- (void)addBackItem
 //{
@@ -141,73 +139,13 @@
 
 - (void)searchData
 {
-    NSString *searchSQL = [NSString stringWithFormat:@"SELECT * FROM chatRecord WHERE toid like %d",(int)_usd];
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(_database, [searchSQL UTF8String], -1, &statement, nil) == SQLITE_OK){
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            MChat *tmp = [[MChat alloc]init];
-            
-            char *time = (char *)sqlite3_column_text(statement, 0);
-            tmp.time = [[NSString alloc]initWithUTF8String:time];
-            
-            char *content = (char *)sqlite3_column_text(statement, 1);
-            tmp.content = [[NSString alloc]initWithUTF8String:content];
-            
-            int fromid = sqlite3_column_int(statement, 2);
-            tmp.from = fromid;
-            
-            int toid = sqlite3_column_int(statement, 3);
-            tmp.to = toid;
-            
-            char *audiourl = (char *)sqlite3_column_text(statement, 4);
-            tmp.audiourl = [[NSString alloc]initWithUTF8String:audiourl];
-            
-            char *audiointerval = (char *)sqlite3_column_text(statement, 5);
-            tmp.audioInterval = [[NSString alloc]initWithUTF8String:audiointerval];
-            
-            [_mChats addObject:tmp];
-            VChat *cell = [[VChat alloc]init];
-            [_heights addObject:cell];
-        }
-        sqlite3_finalize(statement);
-    }
     [self updateRecentContacts];
 }
 
 #pragma mark - 根据最后一条消息更新最近联系人列表
 - (void)updateRecentContacts
 {
-    if ([_mChats lastObject] != nil) {
-        MChat *tmp = [_mChats lastObject];
-        NSString *searchSQL = [NSString stringWithFormat:@"SELECT * FROM recentContacts"];
-        sqlite3_stmt *statement;
-        NSInteger uid = 0;
-        if (sqlite3_prepare_v2(_database, [searchSQL UTF8String], -1, &statement, nil) == SQLITE_OK){
-            while (sqlite3_step(statement) == SQLITE_ROW) {
-                uid = sqlite3_column_int(statement, 0);
-            }
-            sqlite3_finalize(statement);
-        }
-        if (uid) {  // existed   update record
-            if ([tmp.audioInterval isEqualToString:@"no"]) {
-                NSString *updateContent = [NSString stringWithFormat:@"UPDATE recentContacts SET content='%@' WHERE uid=%d",tmp.content,(int)_usd];
-                [self execSql:updateContent];
-            }else {
-                NSString *updateContent = [NSString stringWithFormat:@"UPDATE recentContacts SET content='%@' WHERE uid=%d",@"[语音]",(int)_usd];
-                [self execSql:updateContent];
-            }
-            NSString *updateTime = [NSString stringWithFormat:@"UPDATE recentContacts SET time='%@' WHERE uid=%d",tmp.time,(int)_usd];
-            [self execSql:updateTime];
-        }else {  // insert
-            if ([tmp.audioInterval isEqualToString:@"no"]) {
-                NSString *add = [NSString stringWithFormat:@"INSERT INTO '%@' (uid,remark,time,content,userimage) VALUES(%d,'%@','%@','%@','%@')",@"recentContacts",(int)_usd,_remark,tmp.time,tmp.content,@"gjqt.jpg"];
-                [self execSql:add];
-            }else {
-                NSString *add = [NSString stringWithFormat:@"INSERT INTO '%@' (uid,remark,time,content,userimage) VALUES(%d,'%@','%@','%@','%@')",@"recentContacts",(int)_usd,_remark,tmp.time,@"[语音]",@"gjqt.jpg"];
-                [self execSql:add];
-            }
-        }
-    }
+  
 }
 
 #pragma mark - tableView delegate
@@ -219,36 +157,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VChat *cell = [VChat vChatWithTableView:tableView];
-    cell.mChat = _mChats[indexPath.row];
-    
-//    if (indexPath.row == _mChats.count - 1) {
-//        [self updateRecentChatList:cell.mChat.content uid:cell.mChat.to time:cell.mChat.time];
-//    }
-//    if (indexPath.row == _mChats.count - 1) {
-//        CGPoint new = [cell convertPoint:cell.frame.origin toView:_tableView.superview];
-//        NSLog(@"%d",(int)new.y);
-//    }
-    cell.delegate = self;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VChat *cell = _heights[indexPath.row];
-    cell.mChat = _mChats[indexPath.row];
-    return cell.height + 5;
+//    VChat *cell = _heights[indexPath.row];
+//    cell.mChat = _mChats[indexPath.row];
+    return   5;
 }
 
 #warning 点击text体播放语音而不是cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VChat *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (![cell.time.text isEqualToString:@"no"]) {
-        _urlString = cell.audiourl;
-        [self playAudio];
-    }
+//    VChat *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    if (![cell.time.text isEqualToString:@"no"]) {
+//        _urlString = cell.audiourl;
+//        [self playAudio];
+//    }
 }
 
 - (void)longTouch
@@ -287,24 +213,24 @@
         height -= 3.5;
     }
     if (newFrame.size.height > 120) {
-        self.inputBar.input.scrollEnabled = YES;
+//        self.inputBar.input.scrollEnabled = YES;
     }else {
-        self.inputBar.input.scrollEnabled = NO;
+//        self.inputBar.input.scrollEnabled = NO;
         [UIView animateWithDuration:0.3 animations:^{
             textView.frame = newFrame;
-            [self.inputBar setFrame:CGRectMake(0, self.inputBar.frame.origin.y - height, self.inputBar.frame.size.width, self.inputBar.frame.size.height + height )];
-            self.inputBar.voice.origin = CGPointMake(self.inputBar.voice.origin.x, self.inputBar.voice.origin.y + height);
-            self.inputBar.face.origin = CGPointMake(SCREENWIDTH - 66 - 5, self.inputBar.face.origin.y + height);
-            self.inputBar.add.origin = CGPointMake(SCREENWIDTH - 2 - 33, self.inputBar.add.origin.y + height);
+//            [self.inputBar setFrame:CGRectMake(0, self.inputBar.frame.origin.y - height, self.inputBar.frame.size.width, self.inputBar.frame.size.height + height )];
+//            self.inputBar.voice.origin = CGPointMake(self.inputBar.voice.origin.x, self.inputBar.voice.origin.y + height);
+//            self.inputBar.face.origin = CGPointMake(SCREENWIDTH - 66 - 5, self.inputBar.face.origin.y + height);
+//            self.inputBar.add.origin = CGPointMake(SCREENWIDTH - 2 - 33, self.inputBar.add.origin.y + height);
         }];
     }
-    self.inputBar.currentFrame = self.inputBar.frame;
+//    self.inputBar.currentFrame = self.inputBar.frame;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
-    [_inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-    [_inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateSelected];
+//    [_inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+//    [_inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateSelected];
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat height = keyboardRect.size.height;
 //    if (height == 0){
@@ -325,8 +251,8 @@
 
 -(void)autoMovekeyBoard:(float)h
 {
-    _inputBar.frame = CGRectMake(0.0f, (float)(SCREENHEIGHT- h - _inputBar.originalFrame.size.height), SCREENWIDTH, _inputBar.originalFrame.size.height);
-    _tableView.frame = CGRectMake(0.0f, 0, SCREENWIDTH,(float)(SCREENHEIGHT- h - _inputBar.originalFrame.size.height));
+//    _inputBar.frame = CGRectMake(0.0f, (float)(SCREENHEIGHT- h - _inputBar.originalFrame.size.height), SCREENWIDTH, _inputBar.originalFrame.size.height);
+//    _tableView.frame = CGRectMake(0.0f, 0, SCREENWIDTH,(float)(SCREENHEIGHT- h - _inputBar.originalFrame.size.height));
 }
 
 - (void)viewUp:(id)sender
@@ -370,19 +296,19 @@
         NSString *time = [formatter stringFromDate:date];
         NSString *add = [NSString stringWithFormat:@"INSERT INTO '%@' (time,content,fromid,toid,audiourl,audiointerval) VALUES('%@','%@',%d,%d,'%@','%@')",TABLENAME,time,textView.text,1,(int)_usd,@"no",@"no"];
         [self execSql:add];
-        MChat *tmp = [[MChat alloc]initWithTime:time content:textView.text from:1 to:_usd audiourl:@"no" audioInterval:@"no"];
-        // update datasource
-        [_mChats addObject:tmp];
-        VChat *cell = [[VChat alloc]init];
-        [_heights addObject:cell];
-       //////////////////////////////////
-        [_tableView beginUpdates];
-        [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-        [_tableView endUpdates];
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        textView.text = @"";
-        [self updateInputbarFrame];
-        [self updateRecentContacts];
+//        MChat *tmp = [[MChat alloc]initWithTime:time content:textView.text from:1 to:_usd audiourl:@"no" audioInterval:@"no"];
+//        // update datasource
+//        [_mChats addObject:tmp];
+//        VChat *cell = [[VChat alloc]init];
+//        [_heights addObject:cell];
+//       //////////////////////////////////
+//        [_tableView beginUpdates];
+//        [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+//        [_tableView endUpdates];
+//        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//        textView.text = @"";
+//        [self updateInputbarFrame];
+//        [self updateRecentContacts];
         return NO;
     }
     return YES;
@@ -391,13 +317,13 @@
 #pragma mark - updateInputbarFrame
 - (void)updateInputbarFrame
 {
-    float height = _inputBar.frame.size.height - 49;
-    _inputBar.frame = CGRectMake(0, _inputBar.frame.origin.y + height,SCREENWIDTH, 49);
-    _inputBar.input.frame = CGRectMake(33 + 5, 5, SCREENWIDTH - 15 - 99, 39);
-    _inputBar.face.origin = CGPointMake(_inputBar.face.origin.x, 8);
-    _inputBar.add.origin = CGPointMake(_inputBar.add.origin.x, 8);
-    _inputBar.voice.origin = CGPointMake(_inputBar.voice.origin.x, 8);
-    self.inputBar.currentFrame = self.inputBar.frame;
+//    float height = _inputBar.frame.size.height - 49;
+//    _inputBar.frame = CGRectMake(0, _inputBar.frame.origin.y + height,SCREENWIDTH, 49);
+//    _inputBar.input.frame = CGRectMake(33 + 5, 5, SCREENWIDTH - 15 - 99, 39);
+//    _inputBar.face.origin = CGPointMake(_inputBar.face.origin.x, 8);
+//    _inputBar.add.origin = CGPointMake(_inputBar.add.origin.x, 8);
+//    _inputBar.voice.origin = CGPointMake(_inputBar.voice.origin.x, 8);
+//    self.inputBar.currentFrame = self.inputBar.frame;
 }
 
 #pragma mark - notification alloc and dealloc
@@ -425,11 +351,11 @@
     NSString *timeinterval = [NSString stringWithFormat:@"%lf",timeInterval];
     NSString *add = [NSString stringWithFormat:@"INSERT INTO '%@' (time,content,fromid,toid,audiourl,audiointerval) VALUES('%@','%@',%d,%d,'%@','%@')",TABLENAME,time,@"    ",1,(int)_usd,[self getSavePath],timeinterval];
     [self execSql:add];
-    MChat *tmp = [[MChat alloc]initWithTime:time content:@"    " from:1 to:_usd audiourl:[self getSavePath] audioInterval:timeinterval];
+//    MChat *tmp = [[MChat alloc]initWithTime:time content:@"    " from:1 to:_usd audiourl:[self getSavePath] audioInterval:timeinterval];
     // update datasource
-    [_mChats addObject:tmp];
-    VChat *cell = [[VChat alloc]init];
-    [_heights addObject:cell];
+//    [_mChats addObject:tmp];
+//    VChat *cell = [[VChat alloc]init];
+//    [_heights addObject:cell];
     //////////////////////////////////
     [_tableView beginUpdates];
     [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
@@ -447,7 +373,7 @@
 
 - (void)cancel
 {
-    _inputBar.voiceHoldOn.selected = NO;
+//    _inputBar.voiceHoldOn.selected = NO;
     [_recordVoice setHidden:YES];
 }
 
@@ -455,7 +381,7 @@
 - (void)voiceHoldOnTouchDown
 {
     _startDate = [NSDate date];   // record current date
-    _inputBar.voiceHoldOn.selected = YES;
+//    _inputBar.voiceHoldOn.selected = YES;
     [_recordVoice setHidden:NO];
     [_recordVoice.centerImage setHidden:YES];
     [_recordVoice.leftImage setHidden:NO];
@@ -468,22 +394,22 @@
 
 - (void)voiceTouchUpInside
 {
-    if(!self.inputBar.keyboard){
-        self.inputBar.keyboard = YES;
-        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
-        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewKeyboardHL"] forState:UIControlStateSelected];
-        [self.inputBar setFrame:CGRectMake(0, SCREENHEIGHT - 49, SCREENWIDTH, 49)];
-        [self.inputBar.input resignFirstResponder];
-        [self.inputBar.voiceHoldOn setHidden:NO];
-        [self.inputBar.input setHidden:YES];
-    }else {
-        self.inputBar.keyboard = NO;
-        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateSelected];
-        [self.inputBar.input becomeFirstResponder];
-        [self.inputBar.voiceHoldOn setHidden:YES];
-        [self.inputBar.input setHidden:NO];
-    }
+//    if(!self.inputBar.keyboard){
+//        self.inputBar.keyboard = YES;
+//        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
+//        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewKeyboardHL"] forState:UIControlStateSelected];
+//        [self.inputBar setFrame:CGRectMake(0, SCREENHEIGHT - 49, SCREENWIDTH, 49)];
+//        [self.inputBar.input resignFirstResponder];
+//        [self.inputBar.voiceHoldOn setHidden:NO];
+//        [self.inputBar.input setHidden:YES];
+//    }else {
+//        self.inputBar.keyboard = NO;
+//        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+//        [self.inputBar.voice setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateSelected];
+//        [self.inputBar.input becomeFirstResponder];
+//        [self.inputBar.voiceHoldOn setHidden:YES];
+//        [self.inputBar.input setHidden:NO];
+//    }
 }
 
 - (void)voiceHoldOnTouchUpInside
@@ -504,7 +430,7 @@
         _voiceInterval = 0;
     }else {
         [_recordVoice setHidden:YES];
-        _inputBar.voiceHoldOn.selected = NO;
+//        _inputBar.voiceHoldOn.selected = NO;
         // send with voice interval
         [self sendAudioMessage:_voiceInterval];
         _voiceInterval = 0;   // clear
@@ -520,7 +446,7 @@
     _timer.fireDate=[NSDate distantFuture];
     [_timer invalidate];
     [_recordVoice setHidden:YES];
-    _inputBar.voiceHoldOn.selected = NO;
+//    _inputBar.voiceHoldOn.selected = NO;
     _voiceInterval = 0;
     _audioRecorder = nil;
 }

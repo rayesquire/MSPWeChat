@@ -44,6 +44,8 @@
     model.region = @"江苏 南京";
     model.autograph = @"In me the tiger sniffs the rose";
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:model.ID] forKey:@"uid"];
+    
     MSPContactModel *B = [[MSPContactModel alloc] init];
     B.uid = 1;
     B.name = @"张";
@@ -92,7 +94,6 @@
 }
 
 - (void)writeChatData {
-    
     
     MSPContactChatModel *aaa = [[MSPContactChatModel alloc] init];
     aaa.content = @"sdjkajdlaksjdas";

@@ -9,6 +9,7 @@
 #import "MSPChatListVC.h"
 #import "MSPContactChatModel.h"
 #import "MSPChatListCell.h"
+#import "MSPChatVC.h"
 
 #import <SWTableViewCell.h>
 #import <Masonry.h>
@@ -60,7 +61,6 @@
     [moreBtn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -150,13 +150,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    CChat *cChat = [[CChat alloc]init];
-//    self.delegate = cChat;
-//    MWeChat *tmp = _array[indexPath.row];
-//    NSString *image = tmp.userImage;
-//    [cChat setTitle:tmp.remark];
-//    [self.delegate passIDAndUserImage:tmp.ID userImage:image];
-//    [self.navigationController pushViewController:cChat animated:YES];
+    MSPContactChatModel *model = [_results objectAtIndex:indexPath.row];
+    MSPChatVC *con = [[MSPChatVC alloc] init];
+    con.uid = model.uid;
+    [self.navigationController pushViewController:con animated:YES];
 }
 
 - (void)click:(UIView *)moreButton {

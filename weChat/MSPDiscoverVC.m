@@ -45,14 +45,16 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NSString *imageStr;
     if (indexPath.section == 0 || indexPath.section == 1) {
         cell.textLabel.text = _listArray[indexPath.section + indexPath.row];
-        cell.imageView.image = _iconArray[indexPath.section + indexPath.row];
+        imageStr = _iconArray[indexPath.section + indexPath.row];
     }
     else {
         cell.textLabel.text = _listArray[indexPath.section + indexPath.row + 1];
-        cell.imageView.image = _iconArray[indexPath.section + indexPath.row + 1];
+        imageStr = _iconArray[indexPath.section + indexPath.row + 1];
     }
+    cell.imageView.image = [UIImage imageNamed:imageStr];
     return cell;
 }
 

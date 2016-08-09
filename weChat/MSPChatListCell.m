@@ -11,8 +11,8 @@
 #import "UIImage+getImage.h"
 #import "NSString+timeSign.h"
 
-#define theTextSize 17
-#define theTimeSize 14
+#define theTextSize 15
+#define theTimeSize 12
 #define theRemarkSize 17
 #define theUserImageSize 50
 
