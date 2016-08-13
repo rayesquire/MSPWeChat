@@ -32,7 +32,6 @@
 		A68D97F71B64CA3F0008D926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F61B64CA3F0008D926 /* main.m */; };
 		A68D97FA1B64CA3F0008D926 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F91B64CA3F0008D926 /* AppDelegate.m */; };
 		A68D98021B64CA3F0008D926 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D98011B64CA3F0008D926 /* Images.xcassets */; };
-		A69624AA1D58586900A38889 /* MSPChatPaoPaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69624A91D58586900A38889 /* MSPChatPaoPaoView.m */; };
 		A69624B01D5879DF00A38889 /* MSPChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69624AF1D5879DF00A38889 /* MSPChatVC.m */; };
 		A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A69AB1C11BE2464300175EEF /* RecordVoice.m */; };
 		A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */; };
@@ -133,8 +132,6 @@
 		A68D98011B64CA3F0008D926 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A68D980A1B64CA3F0008D926 /* weChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68D980F1B64CA3F0008D926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A69624A81D58586900A38889 /* MSPChatPaoPaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatPaoPaoView.h; sourceTree = "<group>"; };
-		A69624A91D58586900A38889 /* MSPChatPaoPaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatPaoPaoView.m; sourceTree = "<group>"; };
 		A69624AE1D5879DF00A38889 /* MSPChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatVC.h; sourceTree = "<group>"; };
 		A69624AF1D5879DF00A38889 /* MSPChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatVC.m; sourceTree = "<group>"; };
 		A69AB1C01BE2464300175EEF /* RecordVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVoice.h; sourceTree = "<group>"; };
@@ -356,6 +353,29 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A65763321D5DC68B002F98A2 /* Old Code */ = {
+			isa = PBXGroup;
+			children = (
+				A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */,
+				A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */,
+				A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */,
+				A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */,
+				A6FFB5531BD3DC26007FCB7C /* CFriendsMoments.h */,
+				A6FFB5541BD3DC26007FCB7C /* CFriendsMoments.m */,
+				A65469161B6D2AFD000C344E /* groupChatViewController.h */,
+				A65469171B6D2AFD000C344E /* groupChatViewController.m */,
+				A65469191B6D2F5A000C344E /* tagViewController.h */,
+				A654691A1B6D2F5A000C344E /* tagViewController.m */,
+				A6C530B81B6DB3C30000CB82 /* publicViewController.h */,
+				A6C530B91B6DB3C30000CB82 /* publicViewController.m */,
+				A6C530BB1B6DC3210000CB82 /* searchPublicViewController.h */,
+				A6C530BC1B6DC3210000CB82 /* searchPublicViewController.m */,
+				A618DDEB1BD86A5F00400218 /* MYTabBar.h */,
+				A618DDEC1BD86A5F00400218 /* MYTabBar.m */,
+			);
+			name = "Old Code";
+			sourceTree = "<group>";
+		};
 		A65F58091B778E9C00804531 /* sortChinese */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,22 +454,7 @@
 				A61BD72F1BD64D2300D4FD96 /* Controller */,
 				A61BD7221BD64C7000D4FD96 /* weChat */,
 				A61BD7241BD64C8400D4FD96 /* discover */,
-				A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */,
-				A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */,
-				A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */,
-				A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */,
-				A6FFB5531BD3DC26007FCB7C /* CFriendsMoments.h */,
-				A6FFB5541BD3DC26007FCB7C /* CFriendsMoments.m */,
-				A65469161B6D2AFD000C344E /* groupChatViewController.h */,
-				A65469171B6D2AFD000C344E /* groupChatViewController.m */,
-				A65469191B6D2F5A000C344E /* tagViewController.h */,
-				A654691A1B6D2F5A000C344E /* tagViewController.m */,
-				A6C530B81B6DB3C30000CB82 /* publicViewController.h */,
-				A6C530B91B6DB3C30000CB82 /* publicViewController.m */,
-				A6C530BB1B6DC3210000CB82 /* searchPublicViewController.h */,
-				A6C530BC1B6DC3210000CB82 /* searchPublicViewController.m */,
-				A618DDEB1BD86A5F00400218 /* MYTabBar.h */,
-				A618DDEC1BD86A5F00400218 /* MYTabBar.m */,
+				A65763321D5DC68B002F98A2 /* Old Code */,
 				A6C004D11B7349FA001BE561 /* gjqt.jpg */,
 				A68D97F41B64CA3F0008D926 /* Supporting Files */,
 			);
@@ -503,8 +508,6 @@
 				A6F9250A1D5834FD00940FBF /* MSPChatCell.m */,
 				A6F925031D582C0D00940FBF /* MSPInputBar.h */,
 				A6F925041D582C0D00940FBF /* MSPInputBar.m */,
-				A69624A81D58586900A38889 /* MSPChatPaoPaoView.h */,
-				A69624A91D58586900A38889 /* MSPChatPaoPaoView.m */,
 			);
 			name = WeChat;
 			sourceTree = "<group>";
@@ -740,7 +743,6 @@
 				A6FA518C1BCE825900041488 /* CChat.m in Sources */,
 				A6CB62BC1D55806400136AB1 /* MSPDiscoverVC.m in Sources */,
 				A67A024E1D547D0800E65107 /* MSPRegionSelectVC.m in Sources */,
-				A69624AA1D58586900A38889 /* MSPChatPaoPaoView.m in Sources */,
 				A6C530BD1B6DC3210000CB82 /* searchPublicViewController.m in Sources */,
 				A61BD7341BD650F700D4FD96 /* MYTool.m in Sources */,
 				A65F58181B779D8500804531 /* ChineseString.m in Sources */,

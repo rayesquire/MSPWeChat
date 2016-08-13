@@ -18,5 +18,4 @@
 @property (nonatomic, readwrite, copy) NSString *audioURL;
 @property (nonatomic, readwrite, assign) NSTimeInterval audioTimeInterval;
 
-
 @end

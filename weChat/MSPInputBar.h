@@ -20,7 +20,7 @@
 - (void)faceButtonClick;
 - (void)moreButtonClick;
 - (void)textView:(UITextView *)textView finalText:(NSString *)text;
-
+- (BOOL)textView:(UITextView *)textView shouldChangeWithReplacementText:(NSString *)text;
 
 @end
 
@@ -29,5 +29,7 @@
 @property (nonatomic, readwrite, weak) id <MSPInputBarDelegate> delegate;
 
 @property (nonatomic, readwrite, assign) NSInteger maxLines;
+
+- (void)reset;
 
 @end

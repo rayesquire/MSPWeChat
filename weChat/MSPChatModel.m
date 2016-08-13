@@ -10,4 +10,8 @@
 
 @implementation MSPChatModel
 
++ (NSString *)primaryKey {
+    return @"time";
+}
+
 @end

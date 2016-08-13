@@ -14,4 +14,6 @@
 
 - (instancetype)initWithModel:(MSPChatModel *)model;
 
+@property (nonatomic, readonly, assign) CGSize size;
+
 @end

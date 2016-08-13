@@ -133,14 +133,14 @@
     }
     
     // set
-    [_userImageView setFrame:CGRectMake(userImageX, THESPACE, IMAGESIZE, IMAGESIZE)];
-    [_messageBackground setFrame:CGRectMake(messageContentX, THESPACE * 0.8, contentWidth, IMAGESIZE * 1.3)];
+//    [_userImageView setFrame:CGRectMake(userImageX, THESPACE, IMAGESIZE, IMAGESIZE)];
+//    [_messageBackground setFrame:CGRectMake(messageContentX, THESPACE * 0.8, contentWidth, IMAGESIZE * 1.3)];
     [_messageContent setFrame:CGRectMake(THESPACE, THESPACE / 2, contentWidth - 1.75 * THESPACE, IMAGESIZE * 1.4)];
     // line spacing
-    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc]init];
-    paragraph.lineSpacing = 3;
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:TEXTSIZE],NSParagraphStyleAttributeName:paragraph};
-    _messageContent.attributedText = [[NSAttributedString alloc]initWithString:mChat.content attributes:attributes];
+//    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc]init];
+//    paragraph.lineSpacing = 3;
+//    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:TEXTSIZE],NSParagraphStyleAttributeName:paragraph};
+//    _messageContent.attributedText = [[NSAttributedString alloc]initWithString:mChat.content attributes:attributes];
     // reset frame
     CGSize newSize = [_messageContent sizeThatFits:CGSizeMake(_messageContent.frame.size.width, MAXFLOAT)];
     CGRect newFrame = _messageContent.frame;

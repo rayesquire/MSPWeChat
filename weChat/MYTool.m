@@ -10,8 +10,7 @@
 
 @implementation MYTool
 
-+ (void)addRadiusInUIImageView:(UIImageView *)imageView withImage:(UIImage *)image withCornerRadius:(CGFloat)radius toView:(UIView *)view
-{
++ (void)addRadiusInUIImageView:(UIImageView *)imageView withImage:(UIImage *)image withCornerRadius:(CGFloat)radius toView:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
     [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
                                 cornerRadius:radius] addClip];

@@ -14,5 +14,7 @@
 
 @property (nonatomic, readwrite, strong) MSPChatModel *model;
 
+@property (nonatomic, readwrite, assign) CGFloat preferedHeight;
+
 
 @end

@@ -18,9 +18,8 @@
 
 @implementation MYMoreMenu
 
-//  懒加载
-- (UIImageView *)containerView
-{
+//  lazy load
+- (UIImageView *)containerView {
     if (!_containerView) {
         UIImageView *containerView = [[UIImageView alloc]init];
         UIImage *image = [UIImage imageNamed:@"MoreFunctionFrame"];
@@ -36,8 +35,7 @@
     return _containerView;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -45,13 +43,11 @@
     return self;
 }
 
-+ (instancetype)menu
-{
++ (instancetype)menu {
     return [[self alloc]init];
 }
 
-- (void)setContent:(UIView *)content
-{
+- (void)setContent:(UIView *)content {
     _content = content;
     
     // 设置内容的位置
@@ -68,14 +64,12 @@
     
 }
 
-- (void)setContentViewController:(UIViewController *)contentViewController
-{
+- (void)setContentViewController:(UIViewController *)contentViewController {
     _contentViewController = contentViewController;
     self.content = contentViewController.view;
 }
 
-- (void)showFrom:(UIView *)from
-{
+- (void)showFrom:(UIView *)from {
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     
     [window addSubview:self];
@@ -89,8 +83,7 @@
 
 }
 
-- (void)dismiss
-{
+- (void)dismiss {
     [self removeFromSuperview];
 }
 

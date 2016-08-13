@@ -13,8 +13,7 @@
 @implementation MoreMenuTableViewCell
 
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initSubView];
@@ -22,8 +21,7 @@
     return self;
 }
 
-- (void)initSubView
-{
+- (void)initSubView {
     self.userImageView = [[UIImageView alloc]init];
     [self.userImageView setFrame:CGRectMake(10, 5, 30, 30)];
     [self addSubview:self.userImageView];
@@ -35,7 +33,6 @@
     [self addSubview:self.label];
     
     self.selectedBackgroundView.backgroundColor = MYColor(20, 20, 20);
-    
 }
 
 

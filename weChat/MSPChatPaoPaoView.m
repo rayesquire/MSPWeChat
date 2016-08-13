@@ -33,33 +33,29 @@
             UIImage *bkg = [UIImage imageWithCIImage:image.CIImage scale:image.scale orientation:UIImageOrientationUpMirrored];
             _backgroundView = [[UIImageView alloc] initWithImage:bkg];
         }
-        [self addSubview:_backgroundView];
+        _backgroundView.image = nil;
+        _backgroundView.backgroundColor = [UIColor yellowColor];
+//        [self addSubview:_backgroundView];
         _textView = [[UITextView alloc] init];
         _textView.scrollEnabled = NO;
         _textView.editable = NO;
-        _textView.userInteractionEnabled = YES;
-        _textView.backgroundColor = [UIColor clearColor];
+        _textView.backgroundColor = [UIColor yellowColor];
+        _textView.font = [UIFont systemFontOfSize:16];
+        [self addSubview:_textView];
         if (model.isAudio) {
             
         }
         else {
             _textView.text = model.content;
-            CGSize size = [model.content sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}];
-            if (size.width > SCREEN_WIDTH - 110) {
-                _textView.frame = CGRectMake(0, 0, SCREEN_WIDTH - 110, 200);
-            }
-            else {
-                _textView.frame = CGRectMake(0, 0, size.width, 200);
-            }
-            _textView.height = _textView.contentSize.height;
+            [_textView sizeToFit];
         }
-        [_backgroundView addSubview:_textView];
         [_textView mas_makeConstraints:^(MASConstraintMaker *maker){
-            maker.left.equalTo(_backgroundView.mas_left).width.offset(5);
-            maker.right.equalTo(_backgroundView.mas_right).width.offset(-5);
-            maker.top.equalTo(_backgroundView.mas_top);
-            maker.bottom.equalTo(_backgroundView.mas_bottom);
+            maker.left.equalTo(self.mas_left);
+            maker.top.equalTo(self.mas_top);
+            maker.width.lessThanOrEqualTo(@(SCREEN_WIDTH - 120));
+            maker.height.greaterThanOrEqualTo(@(40));
         }];
+        self.frame = _textView.frame;
     }
     return self;
 }

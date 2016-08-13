@@ -78,8 +78,6 @@
     if (size.height <= _originalFrame.size.height - 9) {
         CGRect rect = CGRectMake(self.frame.origin.x, _originalFrame.origin.y, self.frame.size.width, _originalFrame.size.height);
         [self setFrameWithoutOriginalFrame:rect];
-        //        self.y = _originalFrame.origin.y;
-        //        self.height = _originalFrame.size.height;
         textView.textContainerInset = UIEdgeInsetsMake(10, 5, 0, 5);
         size = [textView sizeThatFits:constraintSize];
     }
@@ -93,15 +91,25 @@
             size = [textView sizeThatFits:constraintSize];
             CGRect rect = CGRectMake(self.frame.origin.x, self.frame.origin.x, self.frame.size.width, size.height + 12);
             [self setFrameWithoutOriginalFrame:rect];
-            //            self.height = size.height + 12;
         }
         CGFloat minY = CGRectGetMaxY(_originalFrame);
         CGRect rect = CGRectMake(self.frame.origin.x, minY - self.frame.size.height, self.frame.size.width, self.frame.size.height);
         [self setFrameWithoutOriginalFrame:rect];
-        //        self.y = minY - self.height;
-        [textView setNeedsLayout];
+//        [textView setNeedsLayout];
     }
     _cacheSize = size;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textView:shouldChangeWithReplacementText:)]) {
+        [self.delegate textView:textView shouldChangeWithReplacementText:text];
+    }
+    return YES;
+}
+
+- (void)reset {
+    self.frame = _originalFrame;
+    _inputFrame.textContainerInset = UIEdgeInsetsMake(0, 5, 0, 5);
 }
 
 #pragma mark - lazy load

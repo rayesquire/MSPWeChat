@@ -17,17 +17,31 @@
 #import <Masonry.h>
 
 #import <AVFoundation/AVFoundation.h>
+#import <objc/runtime.h>
 
-@interface MSPChatVC () <UITableViewDelegate,UITableViewDataSource>
+static NSString *cellIdentifier = @"mspchatcell";
+
+@interface MSPChatVC () <UITableViewDelegate,UITableViewDataSource,MSPInputBarDelegate>
 
 @property (nonatomic, readwrite, strong) UITableView *tableView;
 @property (nonatomic, readwrite, strong) MSPInputBar *inputBar;
 @property (nonatomic, readwrite, strong) RLMResults *results;
-@property (nonatomic, readwrite, assign) CGFloat keyboardHeight;
+@property (nonatomic, readwrite, strong) RLMRealm *realm;
+
+@property (nonatomic, readwrite, strong) NSMutableDictionary *cellDictionary;
 
 @end
 
 @implementation MSPChatVC
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _cellDictionary = [NSMutableDictionary dictionary];
+        _realm = [RLMRealm defaultRealm];
+        _results = [MSPChatModel objectsInRealm:_realm where:@"posterUid = %d",[[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"] integerValue]];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,45 +50,95 @@
     _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [_tableView registerClass:[MSPChatCell class] forCellReuseIdentifier:cellIdentifier];
+    _tableView.estimatedRowHeight = UITableViewAutomaticDimension;
     [self.view addSubview:_tableView];
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *maker){
-        maker.top.equalTo(self.view.mas_top);
-        maker.left.equalTo(self.view.mas_left);
-        maker.right.equalTo(self.view.mas_right);
-        maker.bottom.equalTo(self.view.mas_bottom);
-    }];
     
-    _inputBar = [[MSPInputBar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 49, SCREEN_WIDTH, 49)];
+    _inputBar = [[MSPInputBar alloc] init];
+    _inputBar.delegate = self;
     [self.view addSubview:_inputBar];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self registerKeyboardNotification];
-    
 }
 
 #pragma mark - UITableView delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return _results.count > 15 ? 15 : _results.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"mspchatcell";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-    
+    MSPChatCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    MSPChatModel *model = _results[indexPath.row];
+    cell.model = model;
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     return cell;
 }
 
-- (void)registerKeyboardNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *reuseIdentifier = cellIdentifier;
+    MSPChatCell *cell = [_cellDictionary objectForKey:reuseIdentifier];
+    if (!cell) {
+        cell = [[MSPChatCell alloc] init];
+        [_cellDictionary setObject:cell forKey:reuseIdentifier];
+    }
+    MSPChatModel *model = _results[indexPath.row];
+    cell.model = model;
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    cell.bounds = CGRectMake(0, 0, SCREEN_WIDTH, cell.bounds.size.height);
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    return cell.preferedHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 5;
+}
+
+#pragma mark - MSPInputBar delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeWithReplacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [self sendMessage:textView.text];
+        textView.text = @"";
+        [_inputBar reset];
+    }
+    return YES;
+}
+
+- (void)sendMessage:(NSString *)string {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSString *time = [formatter stringFromDate:date];
+    MSPChatModel *model = [[MSPChatModel alloc] init];
+    model.time = time;
+    model.content = string;
+    model.posterUid = [[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"] integerValue];
+    model.accepterUid = self.uid;
+    model.isAudio = NO;
+    model.audioURL = nil;
+    model.audioTimeInterval = 0;
+    model.userImage = @"dog.jpg";
+    [_realm beginWriteTransaction];
+    [MSPChatModel createOrUpdateInRealm:_realm withValue:model];
+    [_realm commitWriteTransaction];
+    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_results.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    //        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_mChats.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    //        [self updateRecentContacts];
 }
 
 // 搜狗输入法会多次调用键盘通知获取高度
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    if (keyboardRect.size.height > _keyboardHeight) {
-        _keyboardHeight = keyboardRect.size.height;
-//    }
-    [self autoMoveKeyBoard:_keyboardHeight];
+    [self autoMoveKeyBoard:keyboardRect.size.height];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -88,10 +152,14 @@
     }];
 }
 
+- (void)registerKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
 
 @end
