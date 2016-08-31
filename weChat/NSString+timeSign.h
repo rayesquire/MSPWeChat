@@ -14,4 +14,6 @@
 
 + (NSString *)timeWithNSInteger:(NSInteger)number;
 
++ (NSString *)MinuteSecondStringWithNSIteger:(NSInteger)time;
+
 @end

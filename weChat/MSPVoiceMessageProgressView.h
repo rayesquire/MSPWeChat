@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, MSPVoiceViewStatusValue) {
+    MSPVoiceViewRecordBegin = 0,
+    MSPVoiceViewRecordHoldInside = 1,
+    MSPVoiceViewRecordHoldOutside = 2,
+    MSPVoiceViewRecordReleaseInside = 3,
+    MSPVoiceViewRecordReleaseOutside = 4
+};
+
 @interface MSPVoiceMessageProgressView : UIView
+
+- (void)updateProgress:(CGFloat)power;
+
+- (void)updateStatus:(MSPVoiceViewStatusValue)status value:(NSTimeInterval)value;
 
 @end

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MSPChatModel;
+
 @interface MSPPaopaoView : UIButton
+
+- (instancetype)initWithModel:(MSPChatModel *)model;
 
 @end

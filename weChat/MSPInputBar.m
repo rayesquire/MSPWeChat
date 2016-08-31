@@ -28,6 +28,8 @@
 
 @property (nonatomic, readwrite, assign) CGSize cacheSize;
 
+@property (nonatomic, readwrite, assign) BOOL isKeyboardShowed;
+
 @end
 
 @implementation MSPInputBar
@@ -49,6 +51,7 @@
         
         _originalFrame = frame;
         _maxLines = 5;
+        _isKeyboardShowed = NO;
         
         NSString *test = @"Aa我";
         CGSize size = [test sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TEXTSIZE]}];
@@ -219,6 +222,23 @@
 - (void)voiceTouchUpInside {
     if (self.delegate && [self.delegate respondsToSelector:@selector(voiceTouchUpInside)]) {
         [self.delegate voiceTouchUpInside];
+    }
+    if(!_isKeyboardShowed){
+        _isKeyboardShowed = YES;
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewKeyboardHL"] forState:UIControlStateSelected];
+        [_inputFrame resignFirstResponder];
+        [_inputFrame setHidden:YES];
+        [self.voiceHoldOn setHidden:NO];
+        [self setFrame:CGRectMake(0, SCREEN_HEIGHT - 49, SCREEN_WIDTH, 49)];
+    }
+    else {
+        _isKeyboardShowed = NO;
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateSelected];
+        [_inputFrame becomeFirstResponder];
+        [_inputFrame setHidden:NO];
+        [self.voiceHoldOn setHidden:YES];
     }
 }
 

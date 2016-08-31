@@ -16,6 +16,7 @@
 		A61BD7201BD649F500D4FD96 /* MYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD71F1BD649F500D4FD96 /* MYNavigationController.m */; };
 		A61BD7341BD650F700D4FD96 /* MYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD7331BD650F700D4FD96 /* MYTool.m */; };
 		A61BD73F1BD6583400D4FD96 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A61BD73E1BD6583400D4FD96 /* UIBarButtonItem+Extension.m */; };
+		A631A5341D61E82900803D84 /* MSPPaopaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A631A5331D61E82900803D84 /* MSPPaopaoView.m */; };
 		A65469181B6D2AFD000C344E /* groupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A65469171B6D2AFD000C344E /* groupChatViewController.m */; };
 		A654691B1B6D2F5A000C344E /* tagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A654691A1B6D2F5A000C344E /* tagViewController.m */; };
 		A65635B61D59ADAB0078F656 /* UITextView+MYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A65635B51D59ADAB0078F656 /* UITextView+MYTextView.m */; };
@@ -29,11 +30,11 @@
 		A67A02511D547F4C00E65107 /* MSPRegionSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A02501D547F4C00E65107 /* MSPRegionSelectCell.m */; };
 		A67A02541D54800900E65107 /* MSPAvatorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A02531D54800900E65107 /* MSPAvatorVC.m */; };
 		A67C632B1BE48BAB00E42769 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A67C632A1BE48BAB00E42769 /* UIImage+Extension.m */; };
+		A689C8DD1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A689C8DC1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.m */; };
 		A68D97F71B64CA3F0008D926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F61B64CA3F0008D926 /* main.m */; };
 		A68D97FA1B64CA3F0008D926 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68D97F91B64CA3F0008D926 /* AppDelegate.m */; };
 		A68D98021B64CA3F0008D926 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68D98011B64CA3F0008D926 /* Images.xcassets */; };
 		A69624B01D5879DF00A38889 /* MSPChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69624AF1D5879DF00A38889 /* MSPChatVC.m */; };
-		A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A69AB1C11BE2464300175EEF /* RecordVoice.m */; };
 		A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */; };
 		A69C06111D57155400CD2651 /* MSPBinaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06101D57155400CD2651 /* MSPBinaryButton.m */; };
 		A69C06141D5720AD00CD2651 /* MSPContactsInformationSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C06131D5720AD00CD2651 /* MSPContactsInformationSettingVC.m */; };
@@ -62,7 +63,6 @@
 		A6F9250B1D5834FD00940FBF /* MSPChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F9250A1D5834FD00940FBF /* MSPChatCell.m */; };
 		A6FA51731BCCC6CF00041488 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BDB2551BC94B1A00911985 /* AVFoundation.framework */; };
 		A6FA51751BCCC6D600041488 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FA51741BCCC6D600041488 /* MapKit.framework */; };
-		A6FA518C1BCE825900041488 /* CChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FA518B1BCE825900041488 /* CChat.m */; };
 		A6FFB54F1BD3DB99007FCB7C /* MFriendsMoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */; };
 		A6FFB5521BD3DBE5007FCB7C /* VFriendsMoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFB5511BD3DBE5007FCB7C /* VFriendsMoments.m */; };
 		A6FFB5551BD3DC26007FCB7C /* CFriendsMoments.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFB5541BD3DC26007FCB7C /* CFriendsMoments.m */; };
@@ -96,6 +96,8 @@
 		A61BD7331BD650F700D4FD96 /* MYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTool.m; sourceTree = "<group>"; };
 		A61BD73D1BD6583400D4FD96 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		A61BD73E1BD6583400D4FD96 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		A631A5321D61E82900803D84 /* MSPPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPPaopaoView.h; sourceTree = "<group>"; };
+		A631A5331D61E82900803D84 /* MSPPaopaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPPaopaoView.m; sourceTree = "<group>"; };
 		A64693931BE5E39500A69DFB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A64693951BE5E39C00A69DFB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A65469161B6D2AFD000C344E /* groupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupChatViewController.h; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 		A67A02531D54800900E65107 /* MSPAvatorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPAvatorVC.m; sourceTree = "<group>"; };
 		A67C63291BE48BAB00E42769 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		A67C632A1BE48BAB00E42769 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		A689C8DB1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPVoiceMessageProgressView.h; sourceTree = "<group>"; };
+		A689C8DC1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPVoiceMessageProgressView.m; sourceTree = "<group>"; };
 		A68D97F11B64CA3F0008D926 /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68D97F51B64CA3F0008D926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A68D97F61B64CA3F0008D926 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -134,8 +138,6 @@
 		A68D980F1B64CA3F0008D926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A69624AE1D5879DF00A38889 /* MSPChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatVC.h; sourceTree = "<group>"; };
 		A69624AF1D5879DF00A38889 /* MSPChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatVC.m; sourceTree = "<group>"; };
-		A69AB1C01BE2464300175EEF /* RecordVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordVoice.h; sourceTree = "<group>"; };
-		A69AB1C11BE2464300175EEF /* RecordVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordVoice.m; sourceTree = "<group>"; };
 		A69C060C1D56D98400CD2651 /* MSPContactsInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPContactsInformationCell.h; sourceTree = "<group>"; };
 		A69C060D1D56D98400CD2651 /* MSPContactsInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPContactsInformationCell.m; sourceTree = "<group>"; };
 		A69C060F1D57155400CD2651 /* MSPBinaryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPBinaryButton.h; sourceTree = "<group>"; };
@@ -184,8 +186,6 @@
 		A6F925091D5834FD00940FBF /* MSPChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPChatCell.h; sourceTree = "<group>"; };
 		A6F9250A1D5834FD00940FBF /* MSPChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPChatCell.m; sourceTree = "<group>"; };
 		A6FA51741BCCC6D600041488 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A6FA518A1BCE825900041488 /* CChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChat.h; sourceTree = "<group>"; };
-		A6FA518B1BCE825900041488 /* CChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChat.m; sourceTree = "<group>"; };
 		A6FFB54D1BD3DB99007FCB7C /* MFriendsMoments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFriendsMoments.h; sourceTree = "<group>"; };
 		A6FFB54E1BD3DB99007FCB7C /* MFriendsMoments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFriendsMoments.m; sourceTree = "<group>"; };
 		A6FFB5501BD3DBE5007FCB7C /* VFriendsMoments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFriendsMoments.h; sourceTree = "<group>"; };
@@ -263,15 +263,6 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		A61BD7221BD64C7000D4FD96 /* weChat */ = {
-			isa = PBXGroup;
-			children = (
-				A61BD7271BD64CB500D4FD96 /* VIEW */,
-				A61BD7281BD64CB900D4FD96 /* CONTROLLER */,
-			);
-			name = weChat;
-			sourceTree = "<group>";
-		};
 		A61BD7241BD64C8400D4FD96 /* discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,24 +271,6 @@
 				A61BD72C1BD64D1500D4FD96 /* CONTROLLER */,
 			);
 			name = discover;
-			sourceTree = "<group>";
-		};
-		A61BD7271BD64CB500D4FD96 /* VIEW */ = {
-			isa = PBXGroup;
-			children = (
-				A69AB1C01BE2464300175EEF /* RecordVoice.h */,
-				A69AB1C11BE2464300175EEF /* RecordVoice.m */,
-			);
-			name = VIEW;
-			sourceTree = "<group>";
-		};
-		A61BD7281BD64CB900D4FD96 /* CONTROLLER */ = {
-			isa = PBXGroup;
-			children = (
-				A6FA518A1BCE825900041488 /* CChat.h */,
-				A6FA518B1BCE825900041488 /* CChat.m */,
-			);
-			name = CONTROLLER;
 			sourceTree = "<group>";
 		};
 		A61BD72C1BD64D1500D4FD96 /* CONTROLLER */ = {
@@ -452,7 +425,6 @@
 				A61BD7311BD64D2D00D4FD96 /* Model */,
 				A67A02561D54857F00E65107 /* View */,
 				A61BD72F1BD64D2300D4FD96 /* Controller */,
-				A61BD7221BD64C7000D4FD96 /* weChat */,
 				A61BD7241BD64C8400D4FD96 /* discover */,
 				A65763321D5DC68B002F98A2 /* Old Code */,
 				A6C004D11B7349FA001BE561 /* gjqt.jpg */,
@@ -506,8 +478,12 @@
 				A69C061D1D575F2100CD2651 /* MSPChatListCell.m */,
 				A6F925091D5834FD00940FBF /* MSPChatCell.h */,
 				A6F9250A1D5834FD00940FBF /* MSPChatCell.m */,
+				A631A5321D61E82900803D84 /* MSPPaopaoView.h */,
+				A631A5331D61E82900803D84 /* MSPPaopaoView.m */,
 				A6F925031D582C0D00940FBF /* MSPInputBar.h */,
 				A6F925041D582C0D00940FBF /* MSPInputBar.m */,
+				A689C8DB1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.h */,
+				A689C8DC1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.m */,
 			);
 			name = WeChat;
 			sourceTree = "<group>";
@@ -740,7 +716,6 @@
 				A69C06211D5760A100CD2651 /* NSString+timeSign.m in Sources */,
 				A68D97F71B64CA3F0008D926 /* main.m in Sources */,
 				A6FFB54F1BD3DB99007FCB7C /* MFriendsMoments.m in Sources */,
-				A6FA518C1BCE825900041488 /* CChat.m in Sources */,
 				A6CB62BC1D55806400136AB1 /* MSPDiscoverVC.m in Sources */,
 				A67A024E1D547D0800E65107 /* MSPRegionSelectVC.m in Sources */,
 				A6C530BD1B6DC3210000CB82 /* searchPublicViewController.m in Sources */,
@@ -752,15 +727,16 @@
 				A61BD71D1BD61FFB00D4FD96 /* UIView+Extension.m in Sources */,
 				A69C06171D57471700CD2651 /* MSPChatListVC.m in Sources */,
 				A6E4C6061B65126900A2536E /* MainViewController.m in Sources */,
-				A69AB1C21BE2464300175EEF /* RecordVoice.m in Sources */,
 				A6FFB5551BD3DC26007FCB7C /* CFriendsMoments.m in Sources */,
 				A69624B01D5879DF00A38889 /* MSPChatVC.m in Sources */,
 				A61457531BD75C75002BFDEA /* MoreFunctionTableViewController.m in Sources */,
 				A61BD73F1BD6583400D4FD96 /* UIBarButtonItem+Extension.m in Sources */,
 				A61457561BD778D7002BFDEA /* MoreMenuTableViewCell.m in Sources */,
 				A6C004D51B7382B4001BE561 /* Mmoments.m in Sources */,
+				A689C8DD1D5F956A00A6AB48 /* MSPVoiceMessageProgressView.m in Sources */,
 				A67C632B1BE48BAB00E42769 /* UIImage+Extension.m in Sources */,
 				A67A02511D547F4C00E65107 /* MSPRegionSelectCell.m in Sources */,
+				A631A5341D61E82900803D84 /* MSPPaopaoView.m in Sources */,
 				A6C004DB1B7396AA001BE561 /* Cmoments.m in Sources */,
 				A69C061B1D57498E00CD2651 /* MSPContactChatModel.m in Sources */,
 				A69C060E1D56D98400CD2651 /* MSPContactsInformationCell.m in Sources */,

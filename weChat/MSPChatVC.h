@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MSPContactChatModel.h"
 @interface MSPChatVC : UIViewController
 
 @property (nonatomic, readwrite, assign) NSInteger uid;
+
+@property (nonatomic, readwrite, strong) MSPContactChatModel *model;
 
 @end

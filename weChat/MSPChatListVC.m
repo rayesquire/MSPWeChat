@@ -153,6 +153,7 @@
     MSPContactChatModel *model = [_results objectAtIndex:indexPath.row];
     MSPChatVC *con = [[MSPChatVC alloc] init];
     con.uid = model.uid;
+    con.model = model;
     [self.navigationController pushViewController:con animated:YES];
 }
 

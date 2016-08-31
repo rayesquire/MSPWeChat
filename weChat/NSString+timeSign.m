@@ -93,4 +93,13 @@
     return [NSString timeToTime:string];
 }
 
++ (NSString *)MinuteSecondStringWithNSIteger:(NSInteger)time {
+    NSString *string;
+    NSInteger minute = time / 60;
+    NSInteger second = time % 60;
+    if (time > 60) string = [NSString stringWithFormat:@"%d'%d''", (int)minute, (int)second];
+    else string = [NSString stringWithFormat:@"%d\"", (int)second];
+    return string;
+}
+
 @end
